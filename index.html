@@ -24,7 +24,13 @@
   .codigo { font-family: ui-monospace, Consolas, monospace; color: var(--destaque); font-weight: 600; margin-right:.75rem; }
   .estado { color: var(--suave); font-size: .85rem; white-space: nowrap; }
   .pendente { opacity: .55; }
-  footer { margin-top: 2.5rem; color: var(--suave); font-size: .85rem; }
+  footer { margin-top: 2.5rem; color: var(--suave); font-size: .85rem;
+           display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+  footer a { display: inline-flex; align-items: center; }
+  footer img { display: block; }
+  .logo-julia { height: 30px; width: auto; }
+  .logo-pluto { height: 24px; width: auto; }
+  .fim { display: inline-flex; align-items: center; }
 </style>
 </head>
 <body>
@@ -55,7 +61,22 @@
     </li>
   </ul>
 
-  <footer>Relatórios elaborados em Pluto.jl.</footer>
+  <footer>
+    <span>Relatórios elaborados em</span>
+    <a href="https://julialang.org" target="_blank" rel="noopener" title="Julia">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="images/julia_dark.svg">
+        <img class="logo-julia" src="images/julia.svg" alt="Julia">
+      </picture>
+    </a>
+    <span>no ambiente de desenvolvimento</span>
+    <span class="fim">
+      <a href="https://plutojl.org" target="_blank" rel="noopener" title="Pluto.jl">
+        <img class="logo-pluto" src="images/pluto.svg" alt="Pluto.jl">
+      </a>.
+    </span>
+  </footer>
 </main>
 </body>
 </html>
+

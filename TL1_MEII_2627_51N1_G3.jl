@@ -4,7 +4,7 @@
 #> [frontmatter]
 #> tags = ["lab-report", "module1"]
 #> title = "📄 TL1: Geradores de Corrente Contínua"
-#> layout = "layout.jlhtml"
+# layout = "layout.jlhtml"
 
 using Markdown
 using InteractiveUtils

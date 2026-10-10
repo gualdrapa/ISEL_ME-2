@@ -1,0 +1,40 @@
+name: Deploy Pluto Notebooks
+
+on:
+  push:
+    branches:
+      - main  # ou master, dependendo do nome do teu ramo principal
+  workflow_dispatch: # Permite correr a acção manualmente se necessário
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1' # Usa a versão estável mais recente
+
+      - name: Cache de pacotes (para ser mais rápido)
+        uses: julia-actions/cache@v2
+
+      - name: Converter Notebooks (.jl) em HTML
+        run: |
+          julia -e '
+            using Pkg
+            Pkg.add("PlutoSliderServer")
+            using PlutoSliderServer
+            export_directory(".")
+          '
+
+      - name: Publicar no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages

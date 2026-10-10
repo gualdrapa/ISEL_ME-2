@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Máquinas Eléctricas II — Relatórios</title>
+<style>
+  :root { --fundo:#ffffff; --texto:#1d1d1f; --suave:#6b6b70; --borda:#d9d9de; --destaque:#c1511b; --cartao:#f7f7f9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fundo:#1e1e20; --texto:#ececef; --suave:#9a9aa2; --borda:#3a3a3f; --destaque:#ee8a57; --cartao:#26262a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--fundo); color:var(--texto);
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height:1.5; }
+  main { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+  .sub { color: var(--suave); margin: 0 0 2rem; }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
+  li { border: 1px solid var(--borda); background: var(--cartao); border-radius: 10px; }
+  li a, li .pendente { display:flex; justify-content:space-between; align-items:center; gap:1rem;
+                       padding: 1rem 1.25rem; text-decoration:none; color:inherit; }
+  li a:hover { border-radius:10px; outline: 2px solid var(--destaque); }
+  .codigo { font-family: ui-monospace, Consolas, monospace; color: var(--destaque); font-weight: 600; margin-right:.75rem; }
+  .estado { color: var(--suave); font-size: .85rem; white-space: nowrap; }
+  .pendente { opacity: .55; }
+  footer { margin-top: 2.5rem; color: var(--suave); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Máquinas Eléctricas II</h1>
+  <p class="sub">Relatórios dos trabalhos laboratoriais · 2026/27 · Turma 51N1 · Grupo 3 · ISEL</p>
+
+  <ul>
+    <!-- Para publicar um relatório novo: carregar o HTML exportado para o repositório e
+         trocar a linha <li class="pendente">…</li> pela linha com <a href="nome-do-ficheiro.html">…</a> -->
+    <li>
+      <a href="TL1_MEII_2627_51N1_Grupo3.html">
+        <span><span class="codigo">TL1</span>Geradores de Corrente Contínua</span>
+        <span class="estado">abrir →</span>
+      </a>
+    </li>
+    <li class="pendente">
+      <div class="pendente"><span><span class="codigo">TL2</span>Motores de Corrente Contínua</span><span class="estado">em breve</span></div>
+    </li>
+    <li class="pendente">
+      <div class="pendente"><span><span class="codigo">TL3</span>Alternador Síncrono Isolado</span><span class="estado">em breve</span></div>
+    </li>
+    <li class="pendente">
+      <div class="pendente"><span><span class="codigo">TL4</span>Máquina Síncrona sobre Rede Eléctrica</span><span class="estado">em breve</span></div>
+    </li>
+    <li class="pendente">
+      <div class="pendente"><span><span class="codigo">TL5</span>Transitórios de Máquinas Eléctricas</span><span class="estado">em breve</span></div>
+    </li>
+  </ul>
+
+  <footer>Relatórios elaborados em Pluto.jl.</footer>
+</main>
+</body>
+</html>

@@ -29,7 +29,7 @@ jobs:
             using Pkg
             Pkg.add("PlutoSliderServer")
             using PlutoSliderServer
-            export_directory(".", Export_base_url="[https://gualdrapa.github.io/ISEL_ME-2/](https://gualdrapa.github.io/ISEL_ME-2/)")
+            export_directory(".")
           '
 
       - name: Publicar no GitHub Pages

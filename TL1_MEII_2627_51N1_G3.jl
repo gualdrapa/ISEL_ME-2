@@ -4,7 +4,7 @@
 #> [frontmatter]
 #> tags = ["lab-report", "module1"]
 #> title = "📄 TL1: Geradores de Corrente Contínua"
-# layout = "layout.jlhtml"
+#> layout = "layout.jlhtml"
 
 using Markdown
 using InteractiveUtils
@@ -31,8 +31,8 @@ using PlutoUI, PlutoTeachingTools, Handcalcs, Plots, DataFrames, Statistics
   # DataFrames.jl, para apresentar os dados e resultados em tabelas
   # Statistics.jl, para médias (regressões lineares)
 
-# ╔═╡ 3c0efb46-2527-47fc-b8e2-baf631f112e4
-md"`TL1_MEII_2627_51N1_G3.jl`"
+# ╔═╡ 49477e5b-ec8b-4dae-8a7c-cf86c4f283ba
+md"**`Link para o Notebook:`** [`TL1_MEII_2627_51N1_G3.jl`](https://gualdrapa.github.io/ISEL_ME-2/TL1_MEII_2627_51N1_G3.jl)"
 
 # ╔═╡ cb2aba91-328d-453c-a6a4-b58bdaac45e6
 md"""
@@ -192,7 +192,7 @@ begin
 end;
 
 # ╔═╡ e39d4df6-f8f3-4563-91e7-995e95bce75d
-DataFrame("Terminais" => ["GA-HB (induzido)", "J-K", "\"Rc\" (folha)", "GA-HB (induzido)", "J-K (derivação)", "E-F (série)"],
+DataFrame("Terminais" => ["GA-HB (induzido)", "J-K", "Rc", "GA-HB (induzido)", "J-K (derivação)", "E-F (série)"],
 	"Sessão" => ["TL1.1", "TL1.1", "TL1.1", "TL1.2", "TL1.2", "TL1.2"],
 	"R [Ω]" => [Ri_11, Rjk_11, Rc_11, Ri_12, Rd_12, Rs_12])
 
@@ -692,7 +692,7 @@ Descrevem-se, para cada ensaio, os passos seguidos: o ensaio em vazio e o ensaio
 md"""
 Nesta secção apresentam-se as tabelas com os valores medidos e os gráficos resultantes dos ensaios (primeiro os valores de cada ensaio e, seguidamente, as curvas características dos geradores), sem interpretação nesta fase.
 
-## 3.1 - 💻 Resistências dos enrolamentos e dados de placa
+## 3.1 - 💻 Resistências dos enrolamentos e chapa de características
 
 Registam-se na $(ref_tab(:tab_resist)) as resistências dos enrolamentos, medidas com a máquina desligada em cada uma das sessões (TL1.1 e TL1.2).
 """
@@ -1232,7 +1232,7 @@ $$\begin{align}
 \\[-5mm]
 \small{\textsf{Licenciatura em Engenharia Electrotécnica}} \\
 \href{https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf}{\textcolor{Bittersweet}{\small{\textbf{Máquinas Eléctricas II}}}} \\
-\small{\texttt{Last update: 09·10·2026}}
+\small{\texttt{Última actualização: 11·10·2026}}
 \end{align}$$
 """
 )
@@ -2662,7 +2662,7 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 
 # ╔═╡ Cell order:
 # ╟─55ae9aae-d7ea-45e5-9aed-b50fbffa1984
-# ╟─3c0efb46-2527-47fc-b8e2-baf631f112e4
+# ╟─49477e5b-ec8b-4dae-8a7c-cf86c4f283ba
 # ╟─cb2aba91-328d-453c-a6a4-b58bdaac45e6
 # ╟─5b4dfc55-4b26-45fc-aee7-b74195ac2c73
 # ╠═ead31e42-3ea5-4833-9659-43543197bb1f
@@ -2689,7 +2689,7 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─aecc3a01-f0a0-4ec5-98b3-a667c918c21e
 # ╟─d75e4270-86b1-4efc-a9b9-f6916c98a70b
 # ╟─cc5c9add-b887-435a-9a3f-260a456b37b6
-# ╠═ef1805c1-1ca7-441e-803a-a45bf2414e26
+# ╟─ef1805c1-1ca7-441e-803a-a45bf2414e26
 # ╟─d855d53d-efd8-42df-8f81-bb0f7a8b35fd
 # ╟─c84e6d57-4c72-4fea-8f17-8892124af01b
 # ╟─b258eeb3-248a-466a-b6e3-f323e630d92d

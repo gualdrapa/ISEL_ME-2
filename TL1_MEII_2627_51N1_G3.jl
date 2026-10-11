@@ -61,15 +61,15 @@ HTML("""
 <div>
 <div style='display:inline-block; text-align:left'>
 <b>Alunos</b><br>
-Bruno Duarte Da Silva Ferros · A51622<br>
-Diogo Miguel Assunção Poças Almeida Rocha · A47622<br>
-Rafael Filipe Lopes Carvalho · A48870<br>
-Tiago João Gualdrapa Sopa Soares · A47610
+Bruno Ferros · A51622<br>
+Diogo Rocha · A47622<br>
+Rafael Carvalho · A48870<br>
+Tiago Soares · A47610
 </div>
 </div>
 <div>
 <div style='display:inline-block; text-align:left'>
-Professor Ricardo Jorge Ferreira Luís<br>
+Professor Ricardo Luís<br>
 <b>Ano lectivo:</b> 2026/2027<br>
 <b>Turma:</b> 51N1<br>
 <b>Grupo:</b> 3<br>
@@ -352,8 +352,6 @@ md"""
 ## 4.6 - Regulação de tensão
 
 A regulação de tensão define-se por $$\varepsilon\,[\%]=\dfrac{U_0-U}{U}\times 100$$, com $$U$$ a tensão para a corrente $$I_{eval}$$ (interpolada). Corrente de comparação, $$I_{eval}$$ (A): $(@bind I_eval NumberField(1.0:0.5:22.0, default=20.0))
-
-A $(ref_fig(:fig_reg_tensao)) mostra a característica externa da excitação composta aditiva, normalizada por $$U_0$$ para comparar a regulação independentemente da tensão em vazio de cada ensaio. A excitação derivação (sem enrolamento série) serve de referência.
 """
 
 # ╔═╡ 4aed194d-ece6-4ce8-b2ea-552af91cb6e6
@@ -363,17 +361,6 @@ Exemplo de cálculo (composta aditiva):
 
 # ╔═╡ 6dce2eb9-b96b-4fef-b213-1e5737b7b4a7
 html"<span id='sec47'></span>"
-
-# ╔═╡ 2de777c0-91e0-405e-b048-221c344f98c4
-md"""
-## 4.7 - Característica de regulação (calculada)
-
-A característica de regulação, $$I_{exc}=f(I)$$ com $$U$$ e $$n$$ constantes, não foi medida. Com a característica magnética a 1500 rpm e $$R_{eq}$$ da regressão (secção 4.3), estima-se a corrente de excitação necessária para manter $$U$$ constante: $$E_0^{nec}=U+R_{eq}\,I$$ e $$I_{exc}=E_0^{-1}(E_0^{nec})$$. Tensão a manter, $$U$$ (V): $(@bind U_reg_const NumberField(100.0:5.0:200.0, default=180.0))
-
-Hipóteses: $$R_{eq}$$ constante e velocidade constante. Só se obtém valor para $$E_0^{nec}$$ dentro do intervalo medido na característica magnética (até $$E_0$$ = $(maximum(E0_c2)) V); fora desse intervalo não se representa.
-
-A $(ref_fig(:fig_reg_quedas)) mostra, em função de $$I$$, as quedas de tensão do modelo linear e o $$E_0$$ necessário para manter $$U$$ constante, e a $(ref_fig(:fig_reg)) a corrente de excitação correspondente.
-"""
 
 # ╔═╡ 70ddc2a0-047c-4f32-bb17-feaadf7df41e
 html"<span id='sec5'></span>"
@@ -562,7 +549,7 @@ begin
 	# A POSIÇÃO na lista define o número: para reordenar, basta mudar a ordem da lista.
 	lista_figuras = [:fig_esq_sep, :fig_esq_der, :fig_esq_add, :fig_esq_sub,
 		:fig_magnetica, :fig_fluxo, :fig_sep, :fig_der, :fig_add, :fig_sub,
-		:fig_escala, :fig_autoexc, :fig_quedas, :fig_derE, :fig_der_teo, :fig_comp, :fig_norm, :fig_pot, :fig_reg_tensao, :fig_reg_quedas, :fig_reg]
+		:fig_escala, :fig_autoexc, :fig_quedas, :fig_derE, :fig_der_teo, :fig_comp, :fig_norm, :fig_pot, :fig_reg_quedas, :fig_reg]
 	lista_tabelas = [:tab_material, :tab_resist, :tab_vazio1, :tab_vazio2, :tab_sep, :tab_der,
 		:tab_add, :tab_sub, :tab_prop, :tab_eps]
 
@@ -936,6 +923,22 @@ md"""
 **$(leg_tab(:tab_eps))** Regulação de tensão para $$I$$ = $(I_eval) A. A corrente nominal indicada na folha é $$I_N$$ = $(In_ch) A, superior à máxima ensaiada nas excitações composta e derivação (≈ $(round(maximum([maximum(I_der), maximum(I_add), maximum(I_sub)]), digits=1)) A; subtractiva: $(maximum(I_sub)) A), pelo que se compara para uma corrente comum a todos os ensaios. 📌 Discutir (excitação composta: $$\varepsilon>0$$ hipo-composta, $$\varepsilon\approx0$$ iso-composta, $$\varepsilon<0$$ hiper-composta).
 """
 
+# ╔═╡ 2de777c0-91e0-405e-b048-221c344f98c4
+md"""
+## 4.7 - Característica de regulação (calculada)
+
+A característica de regulação, $$I_{exc}=f(I)$$ com $$U$$ e $$n$$ constantes, não foi medida. Com a característica magnética a 1500 rpm e $$R_{eq}$$ da regressão (secção 4.3), estima-se a corrente de excitação necessária para manter $$U$$ constante: $$E_0^{nec}=U+R_{eq}\,I$$ e $$I_{exc}=E_0^{-1}(E_0^{nec})$$. Tensão a manter, $$U$$ (V): $(@bind U_reg_const NumberField(100.0:5.0:200.0, default=180.0))
+
+Hipóteses: $$R_{eq}$$ constante e velocidade constante. Só se obtém valor para $$E_0^{nec}$$ dentro do intervalo medido na característica magnética (até $$E_0$$ = $(maximum(E0_c2)) V); fora desse intervalo não se representa.
+
+A $(ref_fig(:fig_reg_quedas)) mostra, em função de $$I$$, as quedas de tensão do modelo linear e o $$E_0$$ necessário para manter $$U$$ constante, e a $(ref_fig(:fig_reg)) a corrente de excitação correspondente.
+"""
+
+# ╔═╡ 4b20021f-9293-4929-b354-b3073355ffea
+md"""
+**$(leg_fig(:fig_reg_quedas))** Quedas de tensão, $$\Delta U_T=R_{eq}\,I$$, $$\Delta U_r=R_i\,I$$ e $$\Delta E$$ (RMI e escovas), e $$E_0$$ necessário para manter $$U$$ constante ($$E_0^{nec}=U+\Delta U_T$$), em função de $$I$$ (modelo linear da secção 4.3). 📌 Discutir.
+"""
+
 # ╔═╡ 2d1768d1-bb1e-4e2e-8b4b-11d796f1379c
 md"""
 **$(leg_fig(:fig_reg))** Característica de regulação calculada, $$I_{exc}=f(I)$$ (a tracejado, a corrente de excitação em vazio). 📌 Discutir (e comparar com a observação de regulação da secção 4.3, se aplicável).
@@ -1127,20 +1130,6 @@ begin
 		"U(I = $(I_eval) A) [V]" => round.(U_Ie, digits=1), "ε [%]" => round.(ε_exc, digits=1))
 end
 
-# ╔═╡ 59c3c476-27ff-42fc-bcf7-ba30befead50
-let p = plot(xlabel="I (A)", ylabel="U / U₀", title="Regulação de tensão (U normalizada por U₀)", legend=:bottomleft)
-	curva!(p, I_der, U_der ./ U0_exc[2]; k=2, label="Derivação, referência (ε = $(round(ε_exc[2], digits=1)) %)", marker=:square)
-	curva!(p, I_add, U_add ./ U0_exc[3]; k=3, label="Composta aditiva (ε = $(round(ε_exc[3], digits=1)) %)", marker=:diamond)
-	hline!(p, [1.0]; color=:black, ls=:dash, lw=1.5, label="U = U₀ (iso-composta)")
-	vline!(p, [I_eval]; color=:gray, ls=:dash, lw=1.5, label="I = $(I_eval) A")
-	p
-end
-
-# ╔═╡ 7b8aa79a-3a0d-414e-bfd3-bd65af16850f
-md"""
-**$(leg_fig(:fig_reg_tensao))** Regulação de tensão da excitação composta aditiva: característica externa normalizada, $$U/U_0$$, com a recta $$U=U_0$$ (iso-composta) e a corrente de comparação $$I$$ = $(I_eval) A (ε entre parênteses). A derivação, sem enrolamento série, serve de referência. 📌 Discutir a classificação da excitação composta (hipo, iso ou hiper-composta) e comparar com a derivação.
-"""
-
 # ╔═╡ 50a045a1-a9ff-4675-8fdb-a46b58e924d7
 begin
 	U_vazio = U0_exc[3]                       # V
@@ -1190,11 +1179,6 @@ let I_g = I_reg_grelha
 	plot!(p, I_g, U_reg_const .+ ΔUT_reg; color=:red, ls=:dash, lw=1.5, label="E₀ necessário = U + ΔU_T")
 	p
 end
-
-# ╔═╡ 4b20021f-9293-4929-b354-b3073355ffea
-md"""
-**$(leg_fig(:fig_reg_quedas))** Quedas de tensão, $$\Delta U_T=R_{eq}\,I$$, $$\Delta U_r=R_i\,I$$ e $$\Delta E$$ (RMI e escovas), e $$E_0$$ necessário para manter $$U$$ constante ($$E_0^{nec}=U+\Delta U_T$$), em função de $$I$$ (modelo linear da secção 4.3). 📌 Discutir.
-"""
 
 # ╔═╡ 8cb38b9f-b0f3-4e27-9d13-5a1e031ae472
 #=
@@ -2833,8 +2817,6 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─ec9f4678-7624-463d-97b5-c588d4ffab66
 # ╟─dfbe1f84-782d-41e3-83e1-6aa1c9dd2029
 # ╟─77a8fc85-cdbc-4f9d-9aed-13451c3182bd
-# ╟─59c3c476-27ff-42fc-bcf7-ba30befead50
-# ╟─7b8aa79a-3a0d-414e-bfd3-bd65af16850f
 # ╟─50a045a1-a9ff-4675-8fdb-a46b58e924d7
 # ╟─4aed194d-ece6-4ce8-b2ea-552af91cb6e6
 # ╟─93114ffd-0f8e-43b7-bd64-4859346448b1

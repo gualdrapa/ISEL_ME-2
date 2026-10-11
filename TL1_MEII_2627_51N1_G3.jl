@@ -362,15 +362,6 @@ Exemplo de cálculo (composta aditiva):
 # ╔═╡ 6dce2eb9-b96b-4fef-b213-1e5737b7b4a7
 html"<span id='sec47'></span>"
 
-# ╔═╡ 2de777c0-91e0-405e-b048-221c344f98c4
-md"""
-## 4.7 - Característica de regulação (calculada)
-
-A característica de regulação, $$I_{exc}=f(I)$$ com $$U$$ e $$n$$ constantes, não foi medida. Com a característica magnética a 1500 rpm e $$R_{eq}$$ da regressão (secção 4.3), estima-se a corrente de excitação necessária para manter $$U$$ constante: $$E_0^{nec}=U+R_{eq}\,I$$ e $$I_{exc}=E_0^{-1}(E_0^{nec})$$. Tensão a manter, $$U$$ (V): $(@bind U_reg_const NumberField(100.0:5.0:200.0, default=180.0))
-
-Hipóteses: $$R_{eq}$$ constante e velocidade constante. Só se obtém valor para $$E_0^{nec}$$ dentro do intervalo medido na característica magnética (até $$E_0$$ = $(maximum(E0_c2)) V); fora desse intervalo não se representa.
-"""
-
 # ╔═╡ 70ddc2a0-047c-4f32-bb17-feaadf7df41e
 html"<span id='sec5'></span>"
 
@@ -558,7 +549,7 @@ begin
 	# A POSIÇÃO na lista define o número: para reordenar, basta mudar a ordem da lista.
 	lista_figuras = [:fig_esq_sep, :fig_esq_der, :fig_esq_add, :fig_esq_sub,
 		:fig_magnetica, :fig_fluxo, :fig_sep, :fig_der, :fig_add, :fig_sub,
-		:fig_escala, :fig_autoexc, :fig_quedas, :fig_derE, :fig_der_teo, :fig_comp, :fig_norm, :fig_pot, :fig_reg]
+		:fig_escala, :fig_autoexc, :fig_quedas, :fig_derE, :fig_der_teo, :fig_comp, :fig_norm, :fig_pot, :fig_reg_quedas, :fig_reg]
 	lista_tabelas = [:tab_material, :tab_resist, :tab_vazio1, :tab_vazio2, :tab_sep, :tab_der,
 		:tab_add, :tab_sub, :tab_prop, :tab_eps]
 
@@ -732,7 +723,7 @@ Com os valores anteriores traçaram-se a característica magnética, na $(ref_fi
 
 # ╔═╡ 5abcf517-b77b-48b5-aea2-a8e7b98745e5
 md"""
-**$(leg_fig(:fig_magnetica))** Característica magnética, $$E_0=f(I_{exc})$$, às duas velocidades (inclui o ponto remanescente em $$I_{exc}=0$$).
+**$(leg_fig(:fig_magnetica))** Característica magnética, $$E_0=f(I_{exc})$$, às duas velocidades (apenas os pontos medidos).
 """
 
 # ╔═╡ caa22c20-066e-45da-b33f-1a3ab568f6b7
@@ -873,7 +864,7 @@ Com $$I_{exc}$$ constante, $$U=E_0-(\Delta U_r+\Delta U_{esc}+\Delta E)$$, sendo
 
 # ╔═╡ 5555543c-a8b3-4349-b00e-55302c0a3e7b
 md"""
-**$(leg_fig(:fig_quedas))** Queda de tensão total, queda na resistência do induzido e diferença remanescente (RMI e escovas), em função de $$I$$. 📌 Discutir o peso da RMI no gerador ensaiado.
+**$(leg_fig(:fig_quedas))** Característica externa, $$U=f(I)$$, e quedas de tensão: total ($$\Delta U_T=E_0-U$$), na resistência do induzido ($$\Delta U_r=R_i\,I$$) e restante ($$\Delta E$$, RMI e escovas), em função de $$I$$. $$E_0$$ (extrapolado) a tracejado. 📌 Discutir o peso da RMI no gerador ensaiado.
 """
 
 # ╔═╡ 6e651654-608e-4142-b24d-de9d4741f49c
@@ -932,9 +923,25 @@ md"""
 **$(leg_tab(:tab_eps))** Regulação de tensão para $$I$$ = $(I_eval) A. A corrente nominal indicada na folha é $$I_N$$ = $(In_ch) A, superior à máxima ensaiada nas excitações composta e derivação (≈ $(round(maximum([maximum(I_der), maximum(I_add), maximum(I_sub)]), digits=1)) A; subtractiva: $(maximum(I_sub)) A), pelo que se compara para uma corrente comum a todos os ensaios. 📌 Discutir (excitação composta: $$\varepsilon>0$$ hipo-composta, $$\varepsilon\approx0$$ iso-composta, $$\varepsilon<0$$ hiper-composta).
 """
 
+# ╔═╡ 2de777c0-91e0-405e-b048-221c344f98c4
+md"""
+## 4.7 - Característica de regulação (calculada)
+
+A característica de regulação, $$I_{exc}=f(I)$$ com $$U$$ e $$n$$ constantes, não foi medida. Com a característica magnética a 1500 rpm e $$R_{eq}$$ da regressão (secção 4.3), estima-se a corrente de excitação necessária para manter $$U$$ constante: $$E_0^{nec}=U+R_{eq}\,I$$ e $$I_{exc}=E_0^{-1}(E_0^{nec})$$. Tensão a manter, $$U$$ (V): $(@bind U_reg_const NumberField(100.0:5.0:200.0, default=180.0))
+
+Hipóteses: $$R_{eq}$$ constante e velocidade constante. Só se obtém valor para $$E_0^{nec}$$ dentro do intervalo medido na característica magnética (até $$E_0$$ = $(maximum(E0_c2)) V); fora desse intervalo não se representa.
+
+A $(ref_fig(:fig_reg_quedas)) mostra, em função de $$I$$, as quedas de tensão do modelo linear e o $$E_0$$ necessário para manter $$U$$ constante, e a $(ref_fig(:fig_reg)) a corrente de excitação correspondente.
+"""
+
+# ╔═╡ 4b20021f-9293-4929-b354-b3073355ffea
+md"""
+**$(leg_fig(:fig_reg_quedas))** Quedas de tensão, $$\Delta U_T=R_{eq}\,I$$, $$\Delta U_r=R_i\,I$$ e $$\Delta E$$ (RMI e escovas), e $$E_0$$ necessário para manter $$U$$ constante ($$E_0^{nec}=U+\Delta U_T$$), em função de $$I$$ (modelo linear da secção 4.3). 📌 Discutir.
+"""
+
 # ╔═╡ 2d1768d1-bb1e-4e2e-8b4b-11d796f1379c
 md"""
-**$(leg_fig(:fig_reg))** Característica de regulação calculada, $$I_{exc}=f(I)$$. 📌 Discutir (e comparar com a observação de regulação da secção 4.3, se aplicável).
+**$(leg_fig(:fig_reg))** Característica de regulação calculada, $$I_{exc}=f(I)$$ (a tracejado, a corrente de excitação em vazio). 📌 Discutir (e comparar com a observação de regulação da secção 4.3, se aplicável).
 """
 
 # ╔═╡ 618489c5-d824-4427-995d-103419c638cc
@@ -973,9 +980,11 @@ begin
 end;
 
 # ╔═╡ c512dc2c-83fe-41e9-af26-5570c00be70f
-let p = plot(xlabel="I_exc (A)", ylabel="E₀ (V)", title="Característica magnética (vazio)", legend=:bottomright)
-	curva!(p, Iexc_c2, E0_c2; k=1, label="n = $(n_vz2) rpm", marker=:circle)
-	curva!(p, Iexc_c1, E0_c1; k=2, label="n = $(n_vz1) rpm", marker=:square)
+let p = plot(xlabel="I_exc (A)", ylabel="E₀ (V)", title="Característica magnética (vazio)", legend=:bottomright,
+		xlims=(0, :auto), ylims=(0, :auto))
+	# só os pontos medidos (o primeiro elemento é o ponto remanescente, I_exc = 0, que não entra no gráfico)
+	curva!(p, Iexc_c2[2:end], E0_c2[2:end]; k=1, label="n = $(n_vz2) rpm", marker=:circle)
+	curva!(p, Iexc_c1[2:end], E0_c1[2:end]; k=2, label="n = $(n_vz1) rpm", marker=:square)
 	p
 end
 
@@ -1055,10 +1064,13 @@ let p = plot(xlabel="I (A)", ylabel="U (V)", title="Autoexcitação em derivaç�
 end
 
 # ╔═╡ 31a4f26b-1a5e-49c0-aea1-0dc27d89da6d
-let p = plot(xlabel="I (A)", ylabel="ΔU (V)", title="Separação das quedas de tensão — excitação separada", legend=:topleft)
-	curva!(p, I_c11, ΔUT_sep; k=1, label="ΔU_T = E₀ − U", marker=:circle)
-	curva!(p, I_c11, ΔUr_sep; k=2, label="ΔU_r = Ri·I", marker=:square)
-	curva!(p, I_c11, ΔUo_sep; k=3, label="ΔU_T − ΔU_r (RMI + escovas)", marker=:diamond)
+let p = plot(xlabel="I (A)", ylabel="U (V)", title="Quedas de tensão — gerador de excitação separada",
+		legend=:right, xlims=(0, :auto), ylims=(0, 220))
+	plot!(p, I_c11, U_c11; color=paleta[1], lw=3, label="U = f(I)")
+	plot!(p, I_c11, ΔUT_sep; color=:black, lw=3, label="ΔU_T = E₀ − U")
+	plot!(p, I_c11, ΔUr_sep; color=paleta[3], lw=2, label="ΔU_r = Ri·I")
+	plot!(p, I_c11, ΔUo_sep; color=paleta[4], lw=2, label="ΔE (RMI + escovas)")
+	hline!(p, [E0_sep]; color=:red, ls=:dash, lw=1.5, label="E₀, n = $(n_c11) rpm")
 	p
 end
 
@@ -1145,9 +1157,27 @@ begin
 	E0_nec = U_reg_const .+ (-ajuste_sep.m) .* I_reg_grelha
 	Iexc_nec = [interp_lin(e, E0_c2, Iexc_c2) for e in E0_nec]
 	let p = plot(xlabel="I (A)", ylabel="I_exc (A)", title="Característica de regulação (calculada)", legend=:topleft)
-		curva!(p, I_reg_grelha, Iexc_nec; k=1, label="U = $(U_reg_const) V, n = $(n_vz2) rpm", marker=:circle)
+		curva!(p, I_reg_grelha, Iexc_nec; k=1, label="U = $(U_reg_const) V, n = $(n_vz2) rpm", marker=:circle, lw=3)
+		# corrente de excitação em vazio (I = 0), a tracejado
+		isnan(Iexc_nec[1]) || hline!(p, [Iexc_nec[1]]; color=:red, ls=:dash, lw=1.5,
+			label="I_exc em vazio (I = 0): $(round(Iexc_nec[1], digits=3)) A")
 		p
 	end
+end
+
+# ╔═╡ 227bfc6a-7bce-438e-808f-22b0ab2f2e2e
+let I_g = I_reg_grelha
+	ΔUT_reg = (-ajuste_sep.m) .* I_g          # V, ΔU_T = R_eq·I
+	ΔUr_reg = Ri_11 .* I_g                     # V, ΔU_r = Ri·I
+	ΔUo_reg = ΔUT_reg .- ΔUr_reg               # V, RMI + escovas
+	p = plot(xlabel="I (A)", ylabel="U (V)", title="Quedas de tensão e E₀ necessário (U = $(U_reg_const) V constante)",
+		legend=:right)
+	hline!(p, [U_reg_const]; color=paleta[1], lw=3, label="U = $(U_reg_const) V")
+	plot!(p, I_g, ΔUT_reg; color=:black, lw=3, label="ΔU_T = R_eq·I")
+	plot!(p, I_g, ΔUr_reg; color=paleta[3], lw=3, label="ΔU_r = Ri·I")
+	plot!(p, I_g, ΔUo_reg; color=paleta[4], lw=3, label="ΔE (RMI + escovas)")
+	plot!(p, I_g, U_reg_const .+ ΔUT_reg; color=:red, ls=:dash, lw=1.5, label="E₀ necessário = U + ΔU_T")
+	p
 end
 
 # ╔═╡ 8cb38b9f-b0f3-4e27-9d13-5a1e031ae472
@@ -2792,6 +2822,8 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─93114ffd-0f8e-43b7-bd64-4859346448b1
 # ╟─6dce2eb9-b96b-4fef-b213-1e5737b7b4a7
 # ╟─2de777c0-91e0-405e-b048-221c344f98c4
+# ╟─227bfc6a-7bce-438e-808f-22b0ab2f2e2e
+# ╟─4b20021f-9293-4929-b354-b3073355ffea
 # ╟─5f9bf960-ee0a-4aa1-bbae-2c69e923c745
 # ╟─2d1768d1-bb1e-4e2e-8b4b-11d796f1379c
 # ╟─70ddc2a0-047c-4f32-bb17-feaadf7df41e

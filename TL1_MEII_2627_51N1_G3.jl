@@ -32,7 +32,8 @@ using PlutoUI, PlutoTeachingTools, Handcalcs, Plots, DataFrames, Statistics
   # Statistics.jl, para médias (regressões lineares)
 
 # ╔═╡ 49477e5b-ec8b-4dae-8a7c-cf86c4f283ba
-md"**`Link para o Notebook:`** [`TL1_MEII_2627_51N1_G3.jl`](https://gualdrapa.github.io/ISEL_ME-2/TL1_MEII_2627_51N1_G3.jl)"
+md"**`Link para o Notebook:`** [`TL1_MEII_2627_51N1_G3.jl`](https://git.tiago.pt/ISEL_ME-2/TL1_MEII_2627_51N1_G3.jl)\
+**`Relatórios de ME-II:`** [`git.tiago.pt/ISEL_ME-2`](https://git.tiago.pt/ISEL_ME-2/)"
 
 # ╔═╡ cb2aba91-328d-453c-a6a4-b58bdaac45e6
 md"""
@@ -73,7 +74,7 @@ Professor Ricardo Luís<br>
 <b>Ano lectivo:</b> 2026/2027<br>
 <b>Turma:</b> 51N1<br>
 <b>Grupo:</b> 3<br>
-<b>Data:</b> 16 de Outubro de 2026
+<b>Data:</b> 15 de Outubro de 2026
 </div>
 </div>
 </div>
@@ -163,6 +164,18 @@ html"<span id='sec21'></span>"
 # ╔═╡ ef1805c1-1ca7-441e-803a-a45bf2414e26
 html"<span id='sec22'></span>"
 
+# ╔═╡ 4a7e97b9-70a2-4dbc-a25b-ef9de9e46142
+md"""
+A bancada de ensaios utilizada neste trabalho é constituída por um grupo eletromecânico composto por três máquinas elétricas distintas. Antes da descrição e realização dos ensaios experimentais, é fundamental identificar os parâmetros nominais de funcionamento de cada uma delas. O conhecimento destes valores de referência é imprescindível para a correcta parametrização das ligações, compreensão dos limites operacionais, garantindo a segurança do ensaio sem danos dos equipamentos, "dimensionamento" das proteções e posterior análise dos resultados. 
+
+Neste sentido, apresentam-se de seguida as chapas de características dos três equipamentos, de onde foram extraídos os dados nominais necessários para o desenvolvimento e caracterização do sistema.
+"""
+
+# ╔═╡ b160823a-7993-4ec6-8b2f-eac849008b9f
+md"""
+**Nota:** De salientar que os três equipamentos se encontram acoplados mecanicamente no mesmo veio, embora o Equipamento 3 (Motor CA Elektra) não seja alvo de ensaio no âmbito deste trabalho.
+"""
+
 # ╔═╡ b258eeb3-248a-466a-b6e3-f323e630d92d
 html"<span id='sec23'></span>"
 
@@ -172,6 +185,11 @@ html"<span id='sec3'></span>"
 # ╔═╡ 97f3e468-2f8b-4835-a58d-f7f6be44fcd7
 md"""
 # 3 - Resultados experimentais
+"""
+
+# ╔═╡ b813e4eb-2237-4130-b17c-b3d1be6a4964
+md"""
+Nesta secção apresentam-se as tabelas com os valores medidos e os gráficos resultantes dos ensaios (primeiro os valores de cada ensaio e, seguidamente, as curvas características dos geradores), sem interpretação nesta fase.
 """
 
 # ╔═╡ 81d39162-63a3-40fb-9146-03102e8f743f
@@ -313,6 +331,13 @@ md"""
 Em vazio, a força electromotriz induzida é $E_0=k\varphi\,n$[^Chapman]. Espera-se que $E_0$ aumente com $I_{exc}$ (acréscimo de fluxo), com uma zona linear seguida de saturação, e que, para $I_{exc}=0$, subsista uma tensão não nula devido ao magnetismo remanescente. Sendo $k\varphi_0$ função apenas de $I_{exc}$, de $E_0(n_{mag})=k\varphi_0\,n_{mag}$ e $E_0(n)=k\varphi_0\,n$ resulta $E_0(n)=\dfrac{n}{n_{mag}}\,E_0(n_{mag})$[^RLuis_separshunt], isto é, para o mesmo $I_{exc}$ espera-se $E_0\propto n$. Comparou-se $E_0$ a 750 rpm com o valor a 1500 rpm (interpolado) para o mesmo $I_{exc}$:
 """
 
+# ╔═╡ 89619473-9d37-4644-a7fa-05ea777e4557
+md"""
+Para o mesmo valor de $$I_{exc}$$, a razão $$E_0(n_2)/E_0(n_1)$$ ficou entre 1,97 e 2,00, com valor médio de cerca de 1,98, muito próximo da razão das velocidades ($$n_2/n_1$$ = 2,00). Confirma-se assim que, em vazio, $$E_0=k\varphi\,n$$ com $$\varphi$$ dependente apenas de $$I_{exc}$$: ao duplicar a velocidade, mantendo a corrente de excitação, a f.e.m. duplica. A proporcionalidade verifica-se tanto na zona linear como perto da saturação, e também no magnetismo remanescente (6,27 V / 3,14 V ≈ 2,00), o que indica que o fluxo remanescente era praticamente o mesmo nos dois ensaios.
+
+A razão fica ligeiramente abaixo de 2, cerca de 1 %. É um desvio pequeno, dentro da incerteza das medições: uma diferença de 1 V em 46 V (a menor f.e.m. a 750 rpm) já representa cerca de 2 %. Pode também resultar de a velocidade real diferir um pouco da nominal e da interpolação linear da característica a 1500 rpm, que subestima a f.e.m. onde a curva é côncava. A saturação não explica o desvio, porque afecta da mesma forma as duas velocidades.
+"""
+
 # ╔═╡ 60b10931-cdd0-4815-bcf6-21d18e04c7fe
 html"<span id='sec42'></span>"
 
@@ -330,7 +355,7 @@ html"<span id='sec43'></span>"
 
 # ╔═╡ 4e75afb3-68d0-4d60-aef6-4ddb27938c6c
 md"""
-**Observação de regulação (folha de cálculo):** $$I$$ = $(I_reg_obs) A, $$U$$ = $(U_reg_obs) V, $$n$$ = $(n_reg_obs) rpm ($$f$$ = $(f_reg_obs) Hz no variador). Com $$E_0\propto n$$ e $$R_{eq}$$ da regressão, estima-se para essa velocidade e corrente:
+**Observação de regulação:** com a carga a $$I$$ = $(I_reg_obs) A, reduziu-se a velocidade de accionamento, através do variador de frequência ($$f$$ = $(f_reg_obs) Hz), de 1500 rpm para $$n$$ = $(n_reg_obs) rpm, mantendo constante a corrente de excitação, e registou-se a tensão resultante, $$U$$ = $(U_reg_obs) V. Com $$E_0\propto n$$ e $$R_{eq}$$ da regressão, estima-se para essa velocidade e corrente:
 """
 
 # ╔═╡ 06c56f64-34a3-40d2-88d6-03ef31bfd844
@@ -339,6 +364,13 @@ html"<span id='sec44'></span>"
 # ╔═╡ 4f2a3a8e-7012-4359-9b05-6b13b045540f
 html"<span id='sec45'></span>"
 
+# ╔═╡ 5019d9f5-71c5-47bc-8286-9e02309b81eb
+md"""
+## 4.5 - Comparação das características externas
+
+Comportamento teórico esperado: em excitação separada, a queda de tensão resulta da resistência do induzido e da reacção magnética do induzido (na ausência de enrolamentos de compensação), uma vez que a excitação é independente da carga. Nos geradores autoexcitados, o aumento de carga reduz a tensão aos terminais e, com ela, a corrente de excitação e o fluxo: $$I\uparrow\Rightarrow\Delta U_T\uparrow\Rightarrow I_d\downarrow\Rightarrow U\downarrow$$, pelo que a curva é mais acentuada. Na excitação composta, o enrolamento série, percorrido pela corrente de carga, reforça o fluxo se a ligação for aditiva (compensando a queda de tensão) e enfraquece-o se for subtractiva.
+"""
+
 # ╔═╡ a248aed1-b0b0-416d-93df-45831e692b7a
 md"""
 As tensões em vazio diferem entre ensaios ($U_0$ ≈ 200 a 212 V). Para comparar a *forma* das curvas, representa-se $U/U_0$:
@@ -346,13 +378,6 @@ As tensões em vazio diferem entre ensaios ($U_0$ ≈ 200 a 212 V). Para compara
 
 # ╔═╡ bd2479e8-c8b6-42fc-a100-77035bad3f8e
 html"<span id='sec46'></span>"
-
-# ╔═╡ ec9f4678-7624-463d-97b5-c588d4ffab66
-md"""
-## 4.6 - Regulação de tensão
-
-A regulação de tensão define-se por $$\varepsilon\,[\%]=\dfrac{U_0-U}{U}\times 100$$, com $$U$$ a tensão para a corrente $$I_{eval}$$ (interpolada). Corrente de comparação, $$I_{eval}$$ (A): $(@bind I_eval NumberField(1.0:0.5:22.0, default=20.0))
-"""
 
 # ╔═╡ 4aed194d-ece6-4ce8-b2ea-552af91cb6e6
 md"""
@@ -365,40 +390,22 @@ html"<span id='sec47'></span>"
 # ╔═╡ 70ddc2a0-047c-4f32-bb17-feaadf7df41e
 html"<span id='sec5'></span>"
 
-# ╔═╡ 425dd22b-3872-45ec-a4f2-e2ba8d6d1eeb
+# ╔═╡ b857b5e2-176b-4faf-984b-e40f533e8d81
 md"""
 # 5 - Conclusões
 
 Neste trabalho laboratorial foram estudados experimentalmente diferentes tipos de geradores de corrente contínua (excitação separada, derivação e composta, aditiva e subtractiva). Os ensaios permitiram obter as curvas características fundamentais para compreender as suas diferenças de funcionamento.
 
-Da análise dos resultados, destacam-se as seguintes conclusões fundamentais em resposta aos objectivos propostos:
+Da análise dos resultados, destacam-se as seguintes conclusões, em resposta aos objectivos propostos:
 
-- **Características magnética e de fluxo:** Validou-se a proporcionalidade directa entre a força electromotriz e a velocidade de rotação. O ensaio em vazio confirmou a presença imprescindível do magnetismo remanescente, base para o escorvamento das máquinas autoexcitadas.
-- **Condições de autoexcitação:** No gerador em derivação, comprovou-se na prática o cumprimento das condições teóricas para a autoexcitação: a existência de fluxo remanescente e a garantia de que a resistência do circuito indutor era estritamente inferior à resistência crítica da máquina à velocidade de ensaio.
-- **Quedas de tensão:** A separação das quedas de tensão no ensaio de excitação separada demonstrou que o decréscimo da tensão aos terminais não advém apenas das perdas óhmicas ($R_i \cdot I$). A reacção magnética do induzido e a queda nas escovas assumem um papel preponderante e desmagnetizante à medida que a carga aumenta.
-- **Comparação das excitações:** A sobreposição das características externas explicitou as diferenças de regulação. O gerador em derivação sofre a quebra de tensão mais acentuada entre os modos simples, devido à dependência do seu circuito indutor face à tensão de saída. A excitação composta aditiva mostrou ser a mais estável (regime hipo-composto), com o enrolamento série a compensar de forma eficaz as perdas internas. Pelo contrário, a composta subtractiva apresentou o colapso de tensão esperado devido à oposição de fluxos.
-- **Limitações dos ensaios:** As ligeiras discrepâncias observadas entre as curvas teóricas construídas e as medições reais podem ser justificadas pelo aquecimento progressivo dos enrolamentos ao longo da sessão (que eleva as resistências face aos valores medidos a frio) e por eventuais flutuações residuais na velocidade de arrasto.
+- **Características magnética e de fluxo:** validou-se a proporcionalidade entre a f.e.m. e a velocidade: para o mesmo $$I_{exc}$$, a razão entre as f.e.m. a 1500 e a 750 rpm esteve entre 1,97 e 2,00 (média de 1,98), quando a razão das velocidades é 2,00. O ensaio em vazio evidenciou também o magnetismo remanescente (3,14 V a 750 rpm e 6,27 V a 1500 rpm), necessário ao escorvamento das máquinas autoexcitadas.
+- **Autoexcitação:** o gerador em derivação satisfez as duas condições teóricas: existência de magnetismo remanescente e resistência do circuito indutor ($$R_d$$ = 332 Ω) inferior à resistência crítica ($$R_{crit}$$ ≈ 408 Ω a 1500 rpm), com uma margem de cerca de 23 %. A tensão em vazio prevista pela intersecção da recta do circuito indutor com a característica magnética (207,9 V) ficou a 2 % da medida (212 V).
+- **Quedas de tensão:** na excitação separada, a queda de tensão total chegou a 37,7 V (18 % de $$E_0$$) à corrente máxima, e a resistência do induzido explica cerca de 78 % dela. O restante, $$\Delta E$$, que inclui a RMI e a queda nas escovas, foi de 1,1 a 8,9 V (no máximo 4 % de $$E_0$$), pelo que a RMI tem um peso reduzido neste gerador. O ensaio não permite isolá-la, e $$\Delta E$$ é um majorante da RMI.
+- **Comparação das excitações:** a 20 A, a regulação de tensão foi de 13,9 % na separada, 16,2 % na derivação, 10,9 % na composta aditiva e 32,4 % na composta subtractiva. A derivação regula pior do que a separada, porque a queda de tensão reduz também a excitação. Na composta aditiva, o enrolamento série compensa cerca de um terço da queda da derivação, mas não a anula ($$\varepsilon>0$$, hipo-composta). Na subtractiva, a oposição de fluxos faz a tensão cair mais depressa, com $$\varepsilon$$ cerca do dobro do da derivação.
+- **Regulação da tensão:** a tensão de um gerador pode regular-se pela velocidade ou pela excitação. A observação de regulação (10 A, 180 V, 1415 rpm) foi reproduzida pelo modelo ($$E_0\propto n$$ e $$R_{eq}$$ constante) com uma diferença de cerca de 3 % (185 V previstos). Para manter 180 V, a corrente de excitação calculada a 1500 rpm tem de aumentar de 0,47 A em vazio para 0,65 A a 24 A, de forma convexa por efeito da saturação. Esta característica de regulação foi calculada, e não medida.
+- **Limitações dos ensaios:** o $$E_0$$ da excitação separada foi extrapolado, por não haver ponto em vazio no ensaio em carga; $$R_i$$ foi medida a frio, enquanto em carga o enrolamento aquece; a construção da característica em derivação é muito sensível a pequenos erros (2 % em $$E_0(I_d)$$ desloca o ponto de colapso de 23 A para 26 A); e os ensaios da derivação e da composta não chegaram à corrente nominal de 29 A (máximo de 26,9 A, ou 22,4 A na subtractiva).
 
-Em suma, os objectivos do trabalho foram integralmente cumpridos. A execução dos diferentes esquemas eléctricos e a condução dos ensaios permitiram consolidar, de forma prática e evidente, os princípios teóricos de regulação e o comportamento sob carga das máquinas de corrente contínua.
-
-"""
-
-# ╔═╡ b857b5e2-176b-4faf-984b-e40f533e8d81
-md"""
-# Declaração de uso de GenAI
-
-Recorreu-se a GenAI para a estrutura do notebook e para o código de tratamento dos dados. A interpretação dos resultados, a análise crítica e as conclusões são da responsabilidade dos autores.
-
-Os autores declaram que, na elaboração deste trabalho, foram utilizadas as seguintes ferramentas de inteligência artificial:
-
-- **Perplexity AI Pro:** utilizada para pesquisa de fontes e referências bibliográficas relevantes ao tema de estudo;
-- **Claude (Anthropic):** utilizada para revisão e refinamento do texto, visando maior fluidez na redacção e correcção linguística;
-- **Writefull:** utilizado como ferramenta de correcção ortográfica e melhor clareza linguística;
-- **Nano Banana Pro:** empregue na geração de esquemas e imagens.
-
-As ferramentas de inteligência artificial mencionadas foram utilizadas exclusivamente como instrumentos de apoio técnico e metodológico, sem substituir o trabalho intelectual e científico dos autores. Não existindo no Instituto Superior de Engenharia de Lisboa orientações específicas quanto ao uso de inteligência artificial em contexto de trabalhos académicos, foram seguidas as recomendações constantes no *"Guia para a utilização responsável da Inteligência Artificial"* do Instituto Superior Técnico [^IST_IA], garantindo-se, assim, a conformidade com as melhores práticas éticas e metodológicas no uso destas tecnologias em ambiente académico.
-
-Os autores assumem inteira responsabilidade editorial e científica pelo conteúdo apresentado, garantindo que todas as informações, análises, interpretações e conclusões são de sua autoria e responsabilidade. Declara-se ainda que nenhuma outra fonte bibliográfica para além das expressamente citadas neste trabalho foi utilizada, assegurando-se assim a transparência e rigor na apresentação das referências que fundamentam esta pesquisa.
+Em suma, os objectivos do trabalho foram cumpridos: executaram-se os esquemas, operaram-se os geradores com os diferentes tipos de excitação, obtiveram-se as características e compararam-se. A comparação mostra como o tipo de excitação determina a regulação da tensão, e as limitações indicadas apontam onde os resultados devem ser lidos com cautela.
 """
 
 # ╔═╡ 89a9870f-2c6a-46c5-a9dc-5c0bfccf50a9
@@ -450,7 +457,7 @@ md"""
 
 # ╔═╡ b68a154b-48de-4978-b845-806cd245ca5d
 md"""
-Este relatório segue o formato dos *notebooks* da unidade curricular[^RLuis_notebooks]. Documentação das bibliotecas Julia utilizadas: [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Handcalcs](https://co1emi11er2.github.io/Handcalcs.jl/stable/), [Plots](https://docs.juliaplots.org/), [DataFrames](https://dataframes.juliadata.org/).
+Este relatório segue o formato dos *notebooks* [^RLuis_notebooks] da unidade curricular de Máquinas Eléctricas II do Instituto Superior de Engenharia de Lisboa. Documentação das bibliotecas Julia utilizadas: [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Handcalcs](https://co1emi11er2.github.io/Handcalcs.jl/stable/), [Plots](https://docs.juliaplots.org/), [DataFrames](https://dataframes.juliadata.org/).
 """
 
 # ╔═╡ 8391b8ab-58f6-4128-8f87-7eeca0fb211e
@@ -474,7 +481,7 @@ Células de configuração do relatório (pacotes, funções auxiliares, numera�
 """
 
 # ╔═╡ d0b8f53b-10ec-449e-80eb-50bdd46ecb5d
-default(size=(720, 420), lw=2, framestyle=:box, legend=:best, markerstrokewidth=0, markersize=2.5);
+default(size=(720, 420), lw=2, framestyle=:box, legend=:best, markerstrokewidth=0, markersize=3.5);
 
 # ╔═╡ 1851e4aa-d15c-44bf-8052-f1dbc8bee02a
 begin
@@ -547,9 +554,9 @@ end
 begin
 	# Numeração automática de figuras e tabelas (equivalente a \label / \ref do LaTeX).
 	# A POSIÇÃO na lista define o número: para reordenar, basta mudar a ordem da lista.
-	lista_figuras = [:fig_esq_sep, :fig_esq_der, :fig_esq_add, :fig_esq_sub,
+	lista_figuras = [:fig_esq_sep, :fig_esq_der, :fig_esq_add, :fig_esq_sub, :chapas_bancada3,
 		:fig_magnetica, :fig_fluxo, :fig_sep, :fig_der, :fig_add, :fig_sub,
-		:fig_escala, :fig_autoexc, :fig_quedas, :fig_derE, :fig_der_teo, :fig_comp, :fig_norm, :fig_pot, :fig_reg_quedas, :fig_reg]
+		:fig_razao, :fig_escala, :fig_autoexc, :fig_quedas, :fig_derE, :fig_der_teo, :fig_comp, :fig_norm, :fig_pot, :fig_reg_tensao, :fig_reg_quedas, :fig_reg]
 	lista_tabelas = [:tab_material, :tab_resist, :tab_vazio1, :tab_vazio2, :tab_sep, :tab_der,
 		:tab_add, :tab_sub, :tab_prop, :tab_eps]
 
@@ -612,28 +619,28 @@ md"""
 
 # ╔═╡ cc5c9add-b887-435a-9a3f-260a456b37b6
 md"""
-!!! warning "Verificar antes de entregar"
-	📌 Os esquemas indicam o indutor como C-D, enquanto as resistências medidas na máquina ensaiada estão registadas como J-K ($(ref_tab(:tab_resist))). Confirmar a designação dos terminais e indicar a fonte dos esquemas (se adaptados de outra obra, citar).
+!!! warning "Nota:"
+	Existe uma divergência na nomenclatura da identificação dos terminais: os diagramas esquemáticos designam o enrolamento indutor por C-D, ao passo que as ligações físicas no painel da bancada e as respetivas medições de resistência adotam a designação J-K ($(ref_tab(:tab_resist))).
 """
 
 # ╔═╡ d855d53d-efd8-42df-8f81-bb0f7a8b35fd
 md"""
 ## 2.2 - Material utilizado
 
-Na $(ref_tab(:tab_material)) indica-se o equipamento utilizado nos ensaios. 📌 Completar o fabricante/modelo e as características dos equipamentos assinalados.
+Na $(ref_tab(:tab_material)) indica-se o equipamento utilizado nos ensaios.
 
 | Equipamento | Fabricante/modelo | Características principais |
 |:--|:--|:--|
-| Gerador CC (máquina em ensaio) | Elektromotoren Werke Kaiser | 📌 |
-| Motor CC (accionamento do gerador) | Elektromotoren Werke Kaiser | 📌 |
+| Gerador CC (máquina em ensaio) | Elektromotoren Werke Kaiser | - |
+| Motor CC (accionamento do gerador) | Elektromotoren Werke Kaiser | - |
 | Variador de velocidade | - | - |
 | Fonte de alimentação CC | Laboratório M.E. | [-110, 0, +110] V |
 | Reóstato de campo | - | [0–750] Ω |
 | Reóstato de carga (caixa de cargas resistivas) | - | - |
-| Interruptor fusível | 📌25A? | 📌32A? |
+| Interruptor fusível | - | 6A, 25A e 32A |
 | 2 pinças amperimétricas | - | - |
-| Multímetro digital (função voltímetro) | 📌 | 📌 |
-| Ohmímetro digital | - | - |
+| Multímetro digital (função voltímetro) | Uni-T | - |
+| Ohmímetro digital | Uni-T | - |
 | Tacómetro digital | - | - |
 | Cabos de ligação | - | - |
 """
@@ -643,34 +650,37 @@ md"""
 **$(leg_tab(:tab_material))** Material utilizado.
 """
 
+# ╔═╡ dc6e2bf4-7c91-4763-aeb3-a2d0f3042ac8
+md"""
+**$(leg_fig(:chapas_bancada3))** Chapas de características dos equipamentos da bancada. Da esquerda para a direita: Motor CC Kaiser, Alternador Leroy Somer e Motor CA Elektra.
+"""
+
 # ╔═╡ e37a8e7d-a9b7-44a1-9a19-6edeec501535
 md"""
 ## 2.3 - Condução do trabalho
 
 Descrevem-se, para cada ensaio, os passos seguidos: o ensaio em vazio e o ensaio em carga do gerador de excitação separada (TL1.1) e os ensaios em carga do gerador autoexcitado, em excitação derivação e em excitação composta (TL1.2).
 
-(📌 Confirmar os valores e instrumentos indicados à sessão efectivamente realizada.)
 
 ### 2.3.1 - TL1.1: excitação separada em vazio
 
 1. Montou-se o circuito da $(ref_fig(:fig_esq_sep)), sem ligar a carga (interruptor de carga aberto);
 1. Verificaram-se os alcances e a calibração dos aparelhos de medida;
-1. O motor de arrasto foi accionado até estabilizar numa velocidade constante, $$n_1=750$$ rpm (📌 indicar o instrumento de medida da velocidade);
+1. O motor de arrasto foi accionado até estabilizar numa velocidade constante, $$n_1=750$$ rpm (selecção através da frequência de operação que garantisse essa leitura no tacómetro);
 1. Variou-se a corrente de excitação, $$I_{exc}$$, ajustando o reóstato de campo, em passos incrementais. Para cada passo, registou-se $$I_{exc}$$ e a tensão gerada no induzido, $$E_0$$ (incluindo o valor remanescente, com $$I_{exc}=0$$);
 1. Repetiu-se o procedimento para uma segunda velocidade constante, $$n_2=1500$$ rpm.
 
 ### 2.3.2 - TL1.1: excitação separada em carga
 
-1. Mantendo a montagem da $(ref_fig(:fig_esq_sep)), ajustou-se a velocidade para $$n=1500$$ rpm e a corrente de excitação para um valor que produzisse a tensão em vazio pretendida (📌 indicar $$E_0$$ e $$I_{exc}$$), mantendo-a constante;
-1. Ligou-se a carga e variou-se a sua resistência para aumentar gradualmente a corrente de carga, $$I$$. Para cada passo, registou-se o par de valores ($$I$$, $$U$$);
-1. Com a máquina desligada, registaram-se as resistências dos enrolamentos;
-1. Regulação de um ponto de funcionamento em carga (📌 descrever a manobra efectuada).
+1. Mantendo a montagem da $(ref_fig(:fig_esq_sep)), ajustou-se a velocidade para $$n=1500$$ rpm e a corrente de excitação para um valor que produzisse a tensão nominal em vazio, mantendo-a constante;
+1. Ligou-se a carga e variou-se a resistência do reóstato de carga para aumentar gradualmente a corrente de carga, $$I$$. Para cada passo, registou-se o par de valores ($$I$$, $$U$$);
+1. Com a máquina desligada, registaram-se as resistências dos enrolamentos.
 
 ### 2.3.3 - TL1.2: excitação derivação
 
 1. Modificou-se a montagem para o esquema da $(ref_fig(:fig_esq_der));
-1. O motor de arrasto foi accionado até estabilizar numa velocidade constante, $$n=1500$$ rpm, e ajustou-se o reóstato de campo para a tensão em vazio pretendida (📌 indicar $$U_0$$), sem o reajustar durante o ensaio;
-1. Ligou-se a carga e variou-se a sua resistência para aumentar gradualmente a corrente de carga, $$I$$. Para cada passo, registaram-se $$I$$, $$I_d$$ e $$U$$.
+1. O motor de arrasto foi accionado até estabilizar numa velocidade constante, $$n=1500$$ rpm, e ajustou-se o reóstato de campo para a tensão em vazio pretendida ($$U_0$$), sem o reajustar durante o ensaio;
+1. Ligou-se a carga e variou-se a sua resistência para aumentar gradualmente a corrente de carga, $$I$$, desde $0$ até ao valor nominal. Para cada passo, registaram-se $$I$$, $$I_d$$ e $$U$$.
 
 ### 2.3.4 - TL1.2: excitação composta aditiva e subtractiva
 
@@ -679,18 +689,17 @@ Descrevem-se, para cada ensaio, os passos seguidos: o ensaio em vazio e o ensaio
 1. Alterou-se a montagem para a da $(ref_fig(:fig_esq_sub)), invertendo a polaridade do enrolamento de excitação série (fluxo subtractivo), e repetiu-se o procedimento.
 """
 
-# ╔═╡ e6b6aae2-340a-4ef5-936a-743e23c49881
+# ╔═╡ a3c03068-896f-4012-bc43-bc260a2a9c5c
 md"""
-Nesta secção apresentam-se as tabelas com os valores medidos e os gráficos resultantes dos ensaios (primeiro os valores de cada ensaio e, seguidamente, as curvas características dos geradores), sem interpretação nesta fase.
 
-## 3.1 - 💻 Resistências dos enrolamentos e chapa de características
+## 3.1 - Resistências dos enrolamentos e chapa de características
 
 Registam-se na $(ref_tab(:tab_resist)) as resistências dos enrolamentos, medidas com a máquina desligada em cada uma das sessões (TL1.1 e TL1.2).
 """
 
 # ╔═╡ 686d37f2-c05d-4266-8c23-d2b0b12bd19f
 md"""
-**$(leg_tab(:tab_resist))** Resistências dos enrolamentos. 📌 *Inserir a chapa de características do gerador (figura em anexo).*
+**$(leg_tab(:tab_resist))** Resistências dos enrolamentos.
 """
 
 # ╔═╡ 33981584-9369-47b6-a7a2-c0e18e64758f
@@ -699,7 +708,7 @@ md"""
 
 O ensaio em vazio do gerador de excitação separada (TL1.1) foi realizado a duas velocidades constantes, 750 rpm e 1500 rpm. Para cada velocidade, variou-se a corrente de excitação, $$I_{exc}$$, e registou-se a f.e.m. induzida, $$E_0$$.
 
-### 3.2.1 - 💻 Dados experimentais
+### 3.2.1 - Dados experimentais
 
 Os valores registados a cada velocidade, incluindo o magnetismo remanescente ($$I_{exc}=0$$) e a razão $$k\varphi=E_0/n$$, apresentam-se na $(ref_tab(:tab_vazio1)) (750 rpm) e na $(ref_tab(:tab_vazio2)) (1500 rpm).
 """
@@ -737,15 +746,9 @@ md"""
 
 No ensaio em carga do gerador de excitação separada (TL1.1), à velocidade de 1500 rpm e com $$I_{exc}$$ constante, aumentou-se gradualmente a carga, registando a corrente de carga, $$I$$, e a tensão aos terminais, $$U$$.
 
-### 3.3.1 - 💻 Dados experimentais
+### 3.3.1 - Dados experimentais
 
 Os valores registados (de 15 % a 165 % de carga) apresentam-se na $(ref_tab(:tab_sep)), com as quedas de tensão e a potência de saída calculadas, e a característica externa na $(ref_fig(:fig_sep)).
-"""
-
-# ╔═╡ 278c84fd-b6b6-457e-9227-8b5b4eba9c10
-md"""
-!!! warning "Verificar antes de entregar"
-	Na folha, $$I_{exc}$$ em carga está registada como **0,206 A**, que coincide com o último ponto do ensaio em vazio a 1500 rpm ($$E_0$$ = 91 V). Com $$I_{exc}$$ = 0,206 A não se obteria $$U$$ ≈ 206 V à velocidade de 1500 rpm (seriam necessários ≈ 0,65 A, ver $(ref_tab(:tab_vazio2))). 📌 Confirmar o valor de $$I_{exc}$$ efectivamente mantido durante o ensaio.
 """
 
 # ╔═╡ c25f7278-b8bc-41a5-9ba6-04e49aacb393
@@ -764,7 +767,7 @@ md"""
 
 No ensaio em carga do gerador em excitação derivação (TL1.2), à velocidade de 1500 rpm e sem reajustar o reóstato de campo, registaram-se $$I$$, $$I_d$$ e $$U$$. Os valores apresentam-se na $(ref_tab(:tab_der)) e a característica externa na $(ref_fig(:fig_der)).
 
-### 💻 Dados experimentais
+### Dados experimentais
 
 Os valores registados no ensaio, editáveis na célula seguinte, alimentam a tabela e o gráfico seguintes.
 """
@@ -785,16 +788,19 @@ md"""
 
 No ensaio em carga do gerador em excitação composta aditiva (TL1.2), o enrolamento série (E-F) foi ligado de modo a reforçar o fluxo do enrolamento em derivação. Os valores registados apresentam-se na $(ref_tab(:tab_add)) e a característica externa na $(ref_fig(:fig_add)).
 
-### 💻 Dados experimentais
+### Dados experimentais
 
 Os valores registados no ensaio, editáveis na célula seguinte, alimentam a tabela e o gráfico seguintes.
 """
 
 # ╔═╡ 96375eab-8202-412b-8ec8-5220300b2c6e
+# ╠═╡ disabled = true
+#=╠═╡
 md"""
-!!! warning "Verificar antes de entregar"
-	Os valores da coluna $$I_d$$ da excitação composta aditiva (0,003 a 0,088 A) não são compatíveis com a corrente de excitação em derivação para $$U$$ ≈ 200 V (da ordem de 0,5 a 0,6 A, como na $(ref_tab(:tab_der)) e na $(ref_tab(:tab_sub))). Possível erro de leitura ou de alcance. Esta coluna **não é usada** nos cálculos. 📌 Confirmar ou corrigir.
+!!! warning "Verificar antes de entregar..."
+	Os valores da coluna $$I_d$$ da excitação composta aditiva (0,003 a 0,088 A) não são compatíveis com a corrente de excitação em derivação para $$U$$ ≈ 200 V (da ordem de 0,5 a 0,6 A, como na $(ref_tab(:tab_der)) e na $(ref_tab(:tab_sub))). Possível erro de leitura ou de alcance. Os resultados dos ensaios do ano passado apresentam uma ordem de grandeza de diferença.
 """
+  ╠═╡ =#
 
 # ╔═╡ 3035d419-e193-46f2-a8cc-992651ac08b3
 md"""
@@ -812,7 +818,7 @@ md"""
 
 No ensaio em carga do gerador em excitação composta subtractiva (TL1.2), o enrolamento série foi ligado com a polaridade invertida, de modo a opor-se ao fluxo do enrolamento em derivação. Os valores registados apresentam-se na $(ref_tab(:tab_sub)) e a característica externa na $(ref_fig(:fig_sub)).
 
-### 💻 Dados experimentais
+### Dados experimentais
 
 Os valores registados no ensaio, editáveis na célula seguinte, alimentam a tabela e o gráfico seguintes.
 """
@@ -829,12 +835,24 @@ md"""
 
 # ╔═╡ 41435062-7fe4-485d-ab8a-d7e4fd380d62
 md"""
-**$(leg_tab(:tab_prop))** Razão entre as f.e.m. em vazio às duas velocidades, para o mesmo $$I_{exc}$$ (razão das velocidades: $$n_2/n_1$$ = 2,00). 📌 Discutir.
+**$(leg_tab(:tab_prop))** Razão entre as f.e.m. em vazio às duas velocidades, para o mesmo $$I_{exc}$$ (razão das velocidades: $$n_2/n_1$$ = 2,00).
+"""
+
+# ╔═╡ 7d794856-5fa2-4255-86a4-78e07330eda8
+md"""
+**$(leg_fig(:fig_razao))** Razão entre as f.e.m. em vazio a 1500 e a 750 rpm, para o mesmo $$I_{exc}$$, em função de $$I_{exc}$$. A tracejado, a razão das velocidades; a ponteado, o valor médio.
 """
 
 # ╔═╡ e95407b9-08c4-4687-aa0d-b6c82b25b499
 md"""
-**$(leg_fig(:fig_escala))** Característica magnética a 1500 rpm medida e obtida a partir da característica a 750 rpm, $$E_0(n)=\frac{n}{n_{mag}}E_0(n_{mag})$$. 📌 Discutir.
+**$(leg_fig(:fig_escala))** Característica magnética a 1500 rpm medida e obtida a partir da característica a 750 rpm, $$E_0(n)=\frac{n}{n_{mag}}E_0(n_{mag})$$.
+"""
+
+# ╔═╡ cc4e045e-4cbe-450b-b7cc-ad79c9da50c0
+md"""
+Da $(ref_fig(:fig_escala)) verifica-se que as duas curvas praticamente coincidem: a característica obtida a partir dos 750 rpm, multiplicando $$E_0$$ por $$n_2/n_1$$ = 2, reproduz a medida a 1500 rpm, com a mesma zona linear a baixas correntes de excitação e o mesmo joelho de saturação. Para os mesmos valores de $$I_{exc}$$, a curva escalada fica ligeiramente acima da medida, em média cerca de 1 V, com um máximo de 1,9 V (≈ 1,4 %), em linha com a razão média de 1,98 da $(ref_tab(:tab_prop)). Confirma-se assim que $$E_0\propto n$$ e que o fluxo depende apenas de $$I_{exc}$$, pelo que uma única característica magnética, medida a uma velocidade, permite obter as restantes por mudança de escala.
+
+Este resultado dá fundamento à hipótese $$E_0\propto n$$ usada na [secção 4.3](#sec43), para estimar a tensão à velocidade de 1415 rpm. Como o erro da proporcionalidade é de cerca de 1 %, a estimativa nessa secção não deve ser pior do que isso por este motivo. A escala também alarga a característica: o último ponto a 750 rpm ($$I_{exc}$$ = 0,670 A) dá $$E_0$$ ≈ 213,6 V a 1500 rpm, acima do máximo medido a essa velocidade (211 V, a 0,652 A).
 """
 
 # ╔═╡ 60c28e92-fb65-4a29-9e74-9cf1af6a8aea
@@ -852,7 +870,14 @@ end
 
 # ╔═╡ cdacb1e0-486f-466f-90d6-9e3267cd2fc8
 md"""
-**$(leg_fig(:fig_autoexc))** Característica magnética a 1500 rpm, recta do circuito indutor em derivação e recta de $$R_{crit}$$. 📌 Discutir as condições de autoexcitação.
+**$(leg_fig(:fig_autoexc))** Característica magnética a 1500 rpm, recta do circuito indutor em derivação e recta de $$R_{crit}$$.
+"""
+
+# ╔═╡ b3c788e0-3c0c-4c84-bd46-5b7447668f52
+md"""
+Da $(ref_fig(:fig_autoexc)) verifica-se que a recta do circuito indutor, $$U=R_d I_d$$ com $$R_d$$ = 332 Ω, tem declive inferior ao da recta de $$R_{crit}$$, que acompanha a zona linear da característica magnética ($$R_{crit}$$ ≈ 408 Ω, regressão com 6 pontos). Está assim cumprida a condição $$R_d<R_{crit}$$ para o gerador se autoexcitar, a par da existência de magnetismo remanescente ($$E_r$$ = 6,27 V). Partindo desta tensão remanescente, a recta fica sempre abaixo da característica, pelo que a corrente de excitação e a tensão se reforçam mutuamente até ao ponto de intersecção das duas curvas. Este ponto fica já na zona de saturação, onde o declive da característica (≈ 120 Ω) é inferior a $$R_d$$, o que o torna estável.
+
+O valor de $$R_{crit}$$ depende do método e do número de pontos usados: entre 390 e 413 Ω na regressão com 9 a 3 pontos, e entre 411 e 442 Ω pelo primeiro par de valores, conforme se desconte ou não o remanescente. Em todos os casos $$R_{crit}>R_d$$, com uma margem de pelo menos 58 Ω, pelo que a conclusão não depende do método. Para 408 Ω, a margem é de cerca de 76 Ω (≈ 23 %): aumentando o reóstato de campo nessa medida, o gerador deixaria de se autoexcitar. Como $$R_{crit}$$ é proporcional à velocidade, o mesmo circuito deixaria também de se autoexcitar abaixo de uma velocidade crítica de cerca de 1220 rpm.
 """
 
 # ╔═╡ 309e6d46-9af8-4851-88b8-39cbad2a1c2f
@@ -864,7 +889,16 @@ Com $$I_{exc}$$ constante, $$U=E_0-(\Delta U_r+\Delta U_{esc}+\Delta E)$$, sendo
 
 # ╔═╡ 5555543c-a8b3-4349-b00e-55302c0a3e7b
 md"""
-**$(leg_fig(:fig_quedas))** Característica externa, $$U=f(I)$$, e quedas de tensão: total ($$\Delta U_T=E_0-U$$), na resistência do induzido ($$\Delta U_r=R_i\,I$$) e restante ($$\Delta E$$, RMI e escovas), em função de $$I$$. $$E_0$$ (extrapolado) a tracejado. 📌 Discutir o peso da RMI no gerador ensaiado.
+**$(leg_fig(:fig_quedas))** Característica externa, $$U=f(I)$$, e quedas de tensão: total ($$\Delta U_T=E_0-U$$), na resistência do induzido ($$\Delta U_r=R_i\,I$$) e restante ($$\Delta E$$, RMI e escovas), em função de $$I$$. $$E_0$$ (extrapolado) a tracejado.
+"""
+
+# ╔═╡ 3c9d105a-d671-4a60-b7db-d8bf59a6f67f
+md"""
+Da $(ref_fig(:fig_quedas)) e da $(ref_tab(:tab_sep)) verifica-se que a tensão desce de 206 V para 172 V quando a corrente aumenta de 2,6 A para 28,8 A. Com $$E_0$$ ≈ 209,7 V (extrapolado), a queda de tensão total, $$\Delta U_T$$, vai de 3,7 V a 37,7 V, isto é, 18 % de $$E_0$$ à corrente máxima. A queda na resistência do induzido, $$\Delta U_r=R_i\,I$$ com $$R_i$$ = 1,0 Ω, é a componente dominante: representa cerca de 78 % de $$\Delta U_T$$ (28,8 V dos 37,7 V à corrente máxima). A diferença, $$\Delta E$$, que reúne a reacção magnética do induzido (RMI) e a queda nas escovas, cresce de 1,1 V para 8,9 V (valores na $(ref_tab(:tab_sep))), o que corresponde a cerca de 20 a 30 % de $$\Delta U_T$$ e, no máximo, a 4 % de $$E_0$$.
+
+O peso da RMI no gerador ensaiado é, portanto, reduzido, mesmo à corrente máxima, próxima da corrente nominal indicada na folha (29 A): com a excitação constante, a descida da tensão deve-se sobretudo à resistência do induzido. Este ensaio não permite, porém, isolar a RMI, pelas razões seguintes. Primeiro, $$\Delta E$$ inclui a queda nas escovas, que tipicamente é da ordem de 2 V no total. Segundo, $$E_0$$ não foi medido em vazio, mas extrapolado da própria característica externa, pelo que $$\Delta U_T$$ é, por construção, quase linear em $$I$$ e $$\Delta E\approx(R_{eq}-R_i)\,I\approx 0{,}28\,I$$ ($$R^2$$ ≈ 0,96): uma eventual não linearidade da RMI, que tende a crescer com a corrente e com a saturação, fica "oculta". Terceiro, $$R_i$$ foi medida com a máquina fria e parada, enquanto em carga o enrolamento aquece e a resistência aumenta; a diferença entre $$R_{eq}$$ = 1,28 Ω e $$R_i$$ = 1,0 Ω poderia ser explicada, em parte ou na totalidade, por um aquecimento do cobre (hipótese, não testada). Em qualquer caso, $$\Delta E$$ é um majorante da RMI.
+
+Para separar a RMI seria necessário medir $$E_0$$ em vazio, com a mesma excitação e velocidade, e medir $$R_i$$ logo a seguir ao ensaio, com a máquina quente.
 """
 
 # ╔═╡ 6e651654-608e-4142-b24d-de9d4741f49c
@@ -879,9 +913,20 @@ md"""
 **$(leg_fig(:fig_derE))** f.e.m. efectiva $$U+R_iI_i$$ e $$E_0(I_d)$$ obtido da característica magnética, em função de $$I$$. 📌 Discutir as diferenças (entre sessões/bancadas, aparelhos de medida, temperatura dos enrolamentos, RMI).
 """
 
+# ╔═╡ 9c21d76c-1022-4d26-8626-47d6ad0218b7
+md"""
+Da $(ref_fig(:fig_derE)) verifica-se que as duas curvas descem com a carga, o que traduz o efeito próprio da excitação em derivação: ao aumentar $$I$$, a tensão baixa, a corrente de excitação $$I_d$$ diminui (de 0,635 A para 0,480 A) e, com ela, o fluxo. A f.e.m. efectiva, $$U+R_iI_i$$ com $$R_i$$ = 0,9 Ω, passa de 212,6 V para 192,3 V (−9,5 %), enquanto $$E_0(I_d)$$, lida na característica magnética, desce de 209,0 V para 183,7 V (−12,1 %). Dos 44 V de queda da tensão aos terminais, cerca de 24 V devem-se à resistência do induzido e cerca de 20 V à descida da f.e.m. (valores na $(ref_tab(:tab_der))).
+
+A f.e.m. efectiva fica acima de $$E_0(I_d)$$ em toda a gama, entre 2,4 e 9,6 V (1 a 5 %, com média de 7,2 V). A diferença já existe em vazio (3,6 V), aumenta até cerca de 9 V por volta dos 20 A e depois estabiliza. O sinal é contrário ao que a RMI e a queda nas escovas produziriam, porque estas fariam $$U+R_iI_i$$ ficar abaixo de $$E_0(I_d)$$. A diferença não pode, por isso, ser atribuída à RMI e deve resultar de desvios sistemáticos entre as duas características.
+
+Há várias causas possíveis. Um desvio semelhante, de cerca de 2 %, já se observa em vazio na [secção 4.2](#sec42), onde a tensão prevista pela intersecção da recta do circuito indutor com a característica magnética (207,9 V) fica abaixo da medida (212 V). Uma diferença de 1 % na velocidade real, cerca de 15 rpm, altera a f.e.m. em cerca de 2 V. A corrente $$I_d$$ é pequena (0,5 a 0,6 A) e a característica magnética tem nessa zona um declive da ordem de 160 Ω, pelo que um erro de 0,01 A em $$I_d$$ corresponde a cerca de 1,6 V em $$E_0$$; a incerteza do aparelho que mede $$I_d$$ pesa, sobretudo se for uma pinça amperimétrica. Por fim, a razão $$U/I_d$$ passa de 334 Ω em vazio para 350 Ω à corrente máxima (+5 %), compatível com um aquecimento do enrolamento indutor de cerca de 12 °C, que altera $$I_d$$ mas não explica por si só o sentido da diferença.
+
+Em conjunto, a diferença é pequena (no máximo 5 %) e não altera a conclusão qualitativa: com a carga, a derivação perde excitação e a f.e.m. desce, para além da queda na resistência do induzido.
+"""
+
 # ╔═╡ 6205f92a-d010-4b73-95b1-f5b9b32d8481
 md"""
-### 4.4.1 - 💻 Construção da característica externa em derivação a partir da excitação separada
+### 4.4.1 - Construção da característica externa em derivação a partir da excitação separada
 
 Para a mesma corrente no induzido, a queda de tensão total, $$\Delta U_T$$, é a mesma nos dois modos de excitação (depende apenas da corrente; aqui despreza-se $$I_d$$ face a $$I$$). Assim, pode construir-se $$U=f(I)$$ do gerador em derivação a partir de $$\Delta U_T=f(I)$$, obtida na excitação separada ($(ref_tab(:tab_sep))), e da característica magnética[^RLuis_separshunt]:
 
@@ -893,14 +938,14 @@ Resistência do circuito de excitação, $$R_{ex}$$ (Ω): $(@bind Rexc_t Slider(
 
 # ╔═╡ a22914bd-97fc-4886-afe0-ce8850f51f60
 md"""
-**$(leg_fig(:fig_der_teo))** Característica externa do gerador em derivação: medida e construída a partir de $$\Delta U_T=f(I)$$ (excitação separada) e da característica magnética. 📌 Discutir as diferenças.
+**$(leg_fig(:fig_der_teo))** Característica externa do gerador em derivação: medida e construída a partir de $$\Delta U_T=f(I)$$ (excitação separada) e da característica magnética.
 """
 
-# ╔═╡ 5019d9f5-71c5-47bc-8286-9e02309b81eb
+# ╔═╡ b0386bee-e43f-422b-b0be-0d0187a36ff0
 md"""
-## 4.5 - Comparação das características externas
+Da $(ref_fig(:fig_der_teo)) verifica-se que a construção reproduz o comportamento qualitativo do gerador em derivação: a tensão desce com a carga e, a partir de uma corrente máxima (cerca de 23 A), a curva inverte, o que corresponde ao decréscimo da excitação. Em vazio, a construção dá 207,8 V, face aos 212 V medidos (−2 %). Com a carga, fica abaixo da curva medida e a diferença cresce com a corrente (−4 V a 2,5 A, −13 V a 9,6 A e −34 V a 19,7 A); os últimos pontos medidos (a partir de 24,6 A) ficam para lá do máximo previsto, sem colapso.
 
-Comportamento teórico esperado: em excitação separada, a queda de tensão resulta da resistência do induzido e da reacção magnética do induzido (na ausência de enrolamentos de compensação), uma vez que a excitação é independente da carga. Nos geradores autoexcitados, o aumento de carga reduz a tensão aos terminais e, com ela, a corrente de excitação e o fluxo: $$I\uparrow\Rightarrow\Delta U_T\uparrow\Rightarrow I_d\downarrow\Rightarrow U\downarrow$$, pelo que a curva é mais acentuada. Na excitação composta, o enrolamento série, percorrido pela corrente de carga, reforça o fluxo se a ligação for aditiva (compensando a queda de tensão) e enfraquece-o se for subtractiva. 📌 Comparar com as curvas obtidas ($(ref_fig(:fig_comp))) e discutir.
+Como $$\Delta U_T=E_0(I_d)-R_{ex}I_d$$ resulta da diferença de duas grandezas próximas, um erro de 2 % em $$E_0(I_d)$$, como o que já se vê em vazio, desloca o máximo de 23 A para 26 A e quase reduz a diferença para metade, tornando o modelo bastante sensível. A diferença deve-se, por isso, sobretudo a esta sensibilidade e às simplificações do método (queda total tirada da excitação separada, com fluxo constante).
 """
 
 # ╔═╡ c0a70779-3e57-4b9f-a2df-70502de2b9c7
@@ -910,7 +955,14 @@ md"""
 
 # ╔═╡ 8231daaa-9f48-401b-abe1-550d9b4a8238
 md"""
-**$(leg_fig(:fig_norm))** Características externas normalizadas, $$U/U_0$$ ($$U_0$$ = tensão em vazio medida; na separada, $$E_0$$ extrapolado). 📌 Discutir.
+**$(leg_fig(:fig_norm))** Características externas normalizadas, $$U/U_0$$ ($$U_0$$ = tensão em vazio medida; na separada, $$E_0$$ extrapolado).
+"""
+
+# ╔═╡ 8755fd04-367f-44cb-a76b-ba83690befe8
+md"""
+Da $(ref_fig(:fig_comp)) e da $(ref_fig(:fig_norm)) verifica-se que a tensão desce com a carga nos quatro ensaios, mas com declives muito diferentes: −1,08 Ω na composta aditiva, −1,28 Ω na separada, −1,60 Ω na derivação e −2,73 Ω na composta subtractiva. A normalização por $$U_0$$ permite comparar as curvas apesar das tensões em vazio diferentes (200 a 212 V). A 20 A, a queda de tensão desde o vazio é de 25,5 V na separada, 29,5 V na derivação, 19,7 V na composta aditiva e 49,7 V na composta subtractiva, o que dá $$\varepsilon$$ de 13,9 %, 16,2 %, 10,9 % e 32,4 % (valores na $(ref_tab(:tab_eps))).
+
+Estes valores seguem o comportamento esperado. Na excitação separada a queda deve-se à resistência do induzido e à RMI; na derivação soma-se a perda de excitação, pelo que a curva é mais acentuada. Na composta aditiva o enrolamento série reforça o fluxo e reduz a queda para cerca de dois terços da da derivação, mas não a anula ($$\varepsilon>0$$, hipo-composta). Na composta subtractiva o fluxo é enfraquecido e a queda aumenta cerca de 70 % em relação à derivação. Como o $$U_0$$ da excitação separada é extrapolado, a sua comparação com as restantes tem mais incerteza.
 """
 
 # ╔═╡ 1f883f87-d5fe-4e85-934f-48adce06f567
@@ -918,9 +970,37 @@ md"""
 **$(leg_fig(:fig_pot))** Potência eléctrica fornecida à carga, $$P=U\,I$$, em função de $$I$$.
 """
 
+# ╔═╡ 87fb8772-13ab-4c3c-910a-bd4f3b73704b
+md"""
+Da $(ref_fig(:fig_pot)) verifica-se que a potência de saída, $$P=U\,I$$, cresce com a corrente de forma ligeiramente côncava, porque a tensão desce com a carga. As curvas da excitação separada, da derivação e da composta aditiva são quase coincidentes até cerca de 20 A (diferenças inferiores a 3 %); a 20 A, a potência é de 3,7 kW, 3,6 kW e 3,6 kW, respectivamente. A composta subtractiva fica claramente abaixo (−17 % a 20 A, em relação à separada) e tende a estabilizar em cerca de 3,1 kW a partir de 20 A, onde a queda de tensão compensa quase por completo o aumento da corrente. À corrente máxima de cada ensaio, a potência é de 4,95 kW na separada (28,8 A), 4,46 kW na derivação (26,6 A), 4,59 kW na composta aditiva (26,9 A) e 3,13 kW na composta subtractiva (22,4 A).
+"""
+
+# ╔═╡ ec9f4678-7624-463d-97b5-c588d4ffab66
+md"""
+## 4.6 - Regulação de tensão
+
+A regulação de tensão define-se por $$\varepsilon\,[\%]=\dfrac{U_0-U}{U}\times 100$$, com $$U$$ a tensão para a corrente $$I_{eval}$$ (interpolada). Corrente de comparação, $$I_{eval}$$ (A): $(@bind I_eval NumberField(1.0:0.5:22.0, default=20.0))
+
+A $(ref_fig(:fig_reg_tensao)) mostra a característica externa da excitação composta aditiva, normalizada por $$U_0$$ para comparar a regulação independentemente da tensão em vazio de cada ensaio. A excitação derivação (sem enrolamento série) serve de referência.
+"""
+
 # ╔═╡ 77a8fc85-cdbc-4f9d-9aed-13451c3182bd
 md"""
-**$(leg_tab(:tab_eps))** Regulação de tensão para $$I$$ = $(I_eval) A. A corrente nominal indicada na folha é $$I_N$$ = $(In_ch) A, superior à máxima ensaiada nas excitações composta e derivação (≈ $(round(maximum([maximum(I_der), maximum(I_add), maximum(I_sub)]), digits=1)) A; subtractiva: $(maximum(I_sub)) A), pelo que se compara para uma corrente comum a todos os ensaios. 📌 Discutir (excitação composta: $$\varepsilon>0$$ hipo-composta, $$\varepsilon\approx0$$ iso-composta, $$\varepsilon<0$$ hiper-composta).
+**$(leg_tab(:tab_eps))** Regulação de tensão para $$I$$ = $(I_eval) A. A corrente nominal indicada na folha é $$I_N$$ = $(In_ch) A, superior à máxima ensaiada nas excitações composta e derivação (≈ $(round(maximum([maximum(I_der), maximum(I_add), maximum(I_sub)]), digits=1)) A; subtractiva: $(maximum(I_sub)) A), pelo que se compara para uma corrente comum a todos os ensaios. Excitação composta: $$\varepsilon>0$$ hipo-composta, $$\varepsilon\approx0$$ iso-composta, $$\varepsilon<0$$ hiper-composta.
+"""
+
+# ╔═╡ 7b8aa79a-3a0d-414e-bfd3-bd65af16850f
+md"""
+**$(leg_fig(:fig_reg_tensao))** Regulação de tensão da excitação composta aditiva: característica externa normalizada, $$U/U_0$$, com a recta $$U=U_0$$ (iso-composta) e a corrente de comparação $$I$$ = $(I_eval) A (ε entre parênteses). A derivação, sem enrolamento série, serve de referência.
+"""
+
+# ╔═╡ a56463ac-4a72-41ee-9fee-bede0e6a5b93
+md"""
+Da $(ref_tab(:tab_eps)) verifica-se que, a 20 A, a regulação de tensão é de 13,9 % na excitação separada, 16,2 % na derivação, 10,9 % na composta aditiva e 32,4 % na composta subtractiva. A ordem é a esperada. Na derivação, a regulação é pior do que na separada porque a queda de tensão reduz também a excitação. Na composta aditiva, o enrolamento série reforça o fluxo e compensa cerca de um terço da queda da derivação (9,8 V dos 29,5 V), o que baixa $$\varepsilon$$ de 16,2 % para 10,9 %. Na composta subtractiva, o enrolamento série enfraquece o fluxo e $$\varepsilon$$ passa para o dobro do da derivação. Esta ordem mantém-se para qualquer corrente de comparação testada (por exemplo, a 10 A: 6,3 %, 6,9 %, 4,2 % e 10,1 %), mas todos os valores aumentam com a corrente.
+
+A $(ref_fig(:fig_reg_tensao)) mostra a composta aditiva normalizada por $$U_0$$, com a derivação como referência. A curva da composta aditiva fica sempre abaixo da recta $$U=U_0$$ e acima da da derivação, e a distância entre as duas aumenta com a corrente (2,4 pontos percentuais de $$U_0$$ a 10 A, 4,1 a 20 A e 6,6 a 26,6 A), como seria de esperar, uma vez que o efeito do enrolamento série é proporcional à corrente. Na gama ensaiada não há sinal de que a curva venha a atingir $$U=U_0$$: à corrente máxima (26,9 A), $$\varepsilon$$ ainda é de 17,0 %.
+
+Na composta aditiva, $$\varepsilon>0$$ significa que a tensão em carga fica abaixo da tensão em vazio, isto é, que o gerador é hipo-composta: o enrolamento série não chega para compensar a queda. Para ser iso-composta ($$\varepsilon\approx0$$) a curva teria de subir cerca de 9,8 pontos percentuais de $$U_0$$ a 20 A, o que exigiria um efeito do enrolamento série cerca de três vezes superior ao actual, se este crescesse na mesma proporção. A composta subtractiva não cabe nesta classificação, que só se aplica à ligação aditiva. Como a corrente nominal (29 A) é superior à de comparação, os valores à corrente nominal seriam maiores, e o $$U_0$$ da excitação separada é extrapolado, pelo que o seu $$\varepsilon$$ tem mais incerteza.
 """
 
 # ╔═╡ 2de777c0-91e0-405e-b048-221c344f98c4
@@ -936,17 +1016,24 @@ A $(ref_fig(:fig_reg_quedas)) mostra, em função de $$I$$, as quedas de tensão
 
 # ╔═╡ 4b20021f-9293-4929-b354-b3073355ffea
 md"""
-**$(leg_fig(:fig_reg_quedas))** Quedas de tensão, $$\Delta U_T=R_{eq}\,I$$, $$\Delta U_r=R_i\,I$$ e $$\Delta E$$ (RMI e escovas), e $$E_0$$ necessário para manter $$U$$ constante ($$E_0^{nec}=U+\Delta U_T$$), em função de $$I$$ (modelo linear da secção 4.3). 📌 Discutir.
+**$(leg_fig(:fig_reg_quedas))** Quedas de tensão, $$\Delta U_T=R_{eq}\,I$$, $$\Delta U_r=R_i\,I$$ e $$\Delta E$$ (RMI e escovas), e $$E_0$$ necessário para manter $$U$$ constante ($$E_0^{nec}=U+\Delta U_T$$), em função de $$I$$ (modelo linear da secção 4.3).
 """
 
 # ╔═╡ 2d1768d1-bb1e-4e2e-8b4b-11d796f1379c
 md"""
-**$(leg_fig(:fig_reg))** Característica de regulação calculada, $$I_{exc}=f(I)$$ (a tracejado, a corrente de excitação em vazio). 📌 Discutir (e comparar com a observação de regulação da secção 4.3, se aplicável).
+**$(leg_fig(:fig_reg))** Característica de regulação calculada, $$I_{exc}=f(I)$$ (a tracejado, a corrente de excitação em vazio).
+"""
+
+# ╔═╡ c31eb315-0b9a-4b85-a12b-e4852746f0da
+md"""
+Da $(ref_fig(:fig_reg_quedas)) verifica-se que, para manter $$U$$ = 180 V, o $$E_0$$ necessário sobe linearmente com a corrente, de 180 V em vazio para 205,6 V a 20 A, porque $$\Delta U_T=R_{eq}\,I$$ cresce 1,28 V por ampere. A 20 A, a queda total é de 25,6 V, dos quais 20,0 V (78 %) se devem à resistência do induzido e 5,6 V (22 %) à RMI e às escovas. Como o modelo é linear ($$R_{eq}$$ constante e $$E_0$$ extrapolado), $$\Delta E$$ é proporcional a $$I$$ por construção, pelo que não revela uma eventual não linearidade da RMI (secção 4.3).
+
+Da $(ref_fig(:fig_reg)) verifica-se que a corrente de excitação tem de aumentar com a carga para compensar essas quedas: de 0,468 A em vazio para 0,649 A a 24 A (+39 %). A curva é convexa (cerca de 0,006 A por ampere até 10 A e 0,009 A por ampere entre 14 e 24 A) porque, com a saturação, cada incremento adicional de $$E_0$$ exige mais corrente de excitação. A curva só chega a 24 A porque aí $$E_0^{nec}$$ atinge 211 V, o máximo medido a 1500 rpm; à corrente nominal (29 A) seriam necessários cerca de 217 V, fora da característica magnética. Para o ponto da observação de regulação da secção 4.3 ($$I$$ = 10 A, $$U$$ = 180 V), a curva dá cerca de 0,53 A a 1500 rpm.
 """
 
 # ╔═╡ 618489c5-d824-4427-995d-103419c638cc
 # Endereço da pasta de imagens no GitHub (repositório público). Alterar só aqui se o endereço mudar,
-# por exemplo para "https://github.tiago.pt/ISEL_ME-2/images/" depois de configurado o domínio.
+# por exemplo para "https://git.tiago.pt/ISEL_ME-2/images/" depois de configurado o domínio.
 url_imagens = "https://raw.githubusercontent.com/gualdrapa/ISEL_ME-2/main/images/";
 
 # ╔═╡ fe34797b-f3a2-4174-be02-f51443fe1766
@@ -960,6 +1047,15 @@ HTML("<img src='$(url_imagens)esquema_gerador_excitacao_composta_aditiva.jpg' al
 
 # ╔═╡ aecc3a01-f0a0-4ec5-98b3-a667c918c21e
 HTML("<img src='$(url_imagens)esquema_gerador_excitacao_composta_subtractiva.jpg' alt='Circuito para gerador de excitação composta, longa derivação, fluxo subtractivo' style='max-width:100%; width:600px'>")
+
+# ╔═╡ c1e5cd6e-3d5c-4e0a-964a-09803a2d3e9c
+HTML("""
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+    <img src='$(url_imagens)bancada-3_motor-cc.jpg' alt='Motor CC Kaiser' style='max-width: 27%; width: auto;'>
+    <img src='$(url_imagens)bancada-3_alternador.jpg' alt='Alternador Leroy Somer' style='max-width: 39%; width: auto;'>
+    <img src='$(url_imagens)bancada-3_motor-ca.jpg' alt='Motor CA Elektra' style='max-width: 27%; width: auto;'>
+</div>
+""")
 
 # ╔═╡ 29c1ea1f-7316-4d6e-83e1-4863c8e08dac
 begin
@@ -995,13 +1091,19 @@ let p = plot(xlabel="I_exc (A)", ylabel="kφ = E₀/n (V/rpm)", title="Caracter�
 	p
 end
 
-# ╔═╡ e69def99-b256-4130-b9e5-d2b5171a70cd
+# ╔═╡ 3ab4240c-0e1c-4a0b-82f4-941adf24e8f9
 begin
 	ajuste_sep = regressao_linear(I_c11, U_c11)
 	I_lin_c11 = range(0, 1.05 * maximum(I_c11), length=50)
-	let p = plot(xlabel="I (A)", ylabel="U (V)", title="Característica externa — excitação separada")
+	let p = plot(xlabel="I (A)", ylabel="U (V)", title="Característica externa — excitação separada",
+			legend=:bottomleft, xlims=(0, :auto), ylims=(165, 220))
+		E0 = ajuste_sep.b                              # V, E₀ extrapolado (I = 0)
+		Ia, Ua = I_c11[9], U_c11[9]                    # ponto onde se indica a queda de tensão total
 		pontos!(p, I_c11, U_c11; k=1, label="medido")
 		plot!(p, I_lin_c11, ajuste_sep.m .* I_lin_c11 .+ ajuste_sep.b; color=paleta[2], label="regressão linear", ls=:dash, lw=1.5)
+		plot!(p, [0, maximum(I_c11)], [E0, E0]; color=:red, ls=:dash, lw=1.5, label="E₀ = $(round(E0, digits=1)) V")
+		plot!(p, [Ia, Ia], [Ua, E0]; color=:black, lw=1.5, arrow=arrow(:closed, :both), label=false)   # seta ΔU_T = E₀ − U
+		annotate!(p, [(Ia + 0.7, (Ua + E0) / 2, Plots.text("ΔUₜ", :left, 11, :black))])
 		p
 	end
 end
@@ -1013,11 +1115,17 @@ md"""
 - Coeficiente de determinação, $$R^2$$ = $(round(ajuste_sep.R2, digits=4)).
 """
 
-# ╔═╡ c04ce852-c270-4f0c-9f26-fc4b91aac934
+# ╔═╡ 305d59f2-a858-4de0-b8af-c9bca9bc1aa3
 begin
 	U_est_reg = E0_sep * (n_reg_obs / n_c11) - (-ajuste_sep.m) * I_reg_obs
 	md"""
-	Obtém-se $$U_{est}=E_0\,\dfrac{n}{n_{1500}}-R_{eq}\,I$$ = **$(round(U_est_reg, digits=1)) V**, face a $(U_reg_obs) V observados. 📌 Descrever a manobra efectuada e discutir.
+	Obtém-se $$U_{est}=E_0\,\dfrac{n}{n_{1500}}-R_{eq}\,I$$ = **$(round(U_est_reg, digits=1)) V**, face a $(U_reg_obs) V observados, ou seja, uma diferença de $(round(U_est_reg - U_reg_obs, digits=1)) V, cerca de $(round((U_est_reg - U_reg_obs) / U_reg_obs * 100, digits=1)) %, com a estimativa acima do valor observado.
+
+	Da $(ref_fig(:fig_sep)), a 1500 rpm e com a mesma corrente, a tensão é de cerca de 197 V. Reduzir a velocidade de 1500 para $(n_reg_obs) rpm (−5,7 %) reduz $$E_0$$ de 209,7 V para 197,8 V e, como $$\Delta U_T$$ depende apenas da corrente, a tensão baixa da mesma quantidade, para cerca de 185 V. O valor observado, 180 V, é 5 V inferior.
+
+	No modelo, esta diferença equivale a uma velocidade de cerca de 1379 rpm, 2,5 % abaixo da registada, e é compatível com as incertezas envolvidas: a leitura da tensão (da ordem de 1 V), a da velocidade e o facto de $$E_0$$ e $$R_{eq}$$ virem da regressão. Pode ainda ter contribuído o aquecimento do enrolamento indutor ao longo da sessão: se a excitação for alimentada a tensão constante, a sua resistência aumenta, $$I_{exc}$$ diminui e, com ela, $$E_0$$ (hipótese, não verificada). Em qualquer caso, o modelo ($$E_0\propto n$$, $$R_{eq}$$ constante, excitação constante) reproduz a observação a menos de 3 %, o que o valida como primeira estimativa do efeito da velocidade na tensão.
+
+	A tensão de um gerador pode assim regular-se pela velocidade ou pela excitação. Segundo o modelo, para obter 180 V com 10 A basta reduzir a velocidade para cerca de 1379 rpm (−8 %), com a excitação constante, ou, a 1500 rpm, reduzir $$I_{exc}$$ de cerca de 0,64 A para cerca de 0,53 A (−17 %), como se vê na $(ref_fig(:fig_reg)).
 	"""
 end
 
@@ -1044,6 +1152,17 @@ end
 # ╔═╡ 04507d0e-dbc5-4356-9b80-9b0372873f19
 let p = plot(xlabel="I (A)", ylabel="U (V)", title="Característica externa — composta subtractiva")
 	curva!(p, I_sub, U_sub; k=1, label="U = f(I)")
+	p
+end
+
+# ╔═╡ 5b3b8ce0-ad02-4ab7-bdc7-e6fb1e0adbc7
+let r = E0_1500_interp ./ E0_c1        # razão E₀(1500 rpm)/E₀(750 rpm); NaN fora do intervalo medido a 1500 rpm
+	local ok = .!isnan.(r)
+	local p = plot(xlabel="I_exc (A)", ylabel="E₀(1500 rpm) / E₀(750 rpm)", title="Razão entre as f.e.m. em vazio às duas velocidades",
+		legend=:bottomright, ylims=(1.96, 2.02))
+	curva!(p, Iexc_c1[ok], r[ok]; k=1, label="medido (interpolado a 1500 rpm)", marker=:circle)
+	hline!(p, [n_vz2 / n_vz1]; color=:red, ls=:dash, lw=1.5, label="n₂/n₁ = $(round(n_vz2 / n_vz1, digits=2))")
+	hline!(p, [mean(r[ok])]; color=:gray, ls=:dot, lw=1.5, label="média = $(round(mean(r[ok]), digits=2))")
 	p
 end
 
@@ -1148,6 +1267,15 @@ let p = plot(xlabel="I (A)", ylabel="P = U·I (W)", title="Potência eléctrica 
 	curva!(p, I_der, U_der .* I_der; k=2, label="Derivação", marker=:square)
 	curva!(p, I_add, U_add .* I_add; k=3, label="Composta aditiva", marker=:diamond)
 	curva!(p, I_sub, U_sub .* I_sub; k=4, label="Composta subtractiva", marker=:utriangle)
+	p
+end
+
+# ╔═╡ 59c3c476-27ff-42fc-bcf7-ba30befead50
+let p = plot(xlabel="I (A)", ylabel="U / U₀", title="Regulação de tensão (U normalizada por U₀)", legend=:bottomleft)
+	curva!(p, I_der, U_der ./ U0_exc[2]; k=2, label="Derivação, referência (ε = $(round(ε_exc[2], digits=1)) %)", marker=:square)
+	curva!(p, I_add, U_add ./ U0_exc[3]; k=3, label="Composta aditiva (ε = $(round(ε_exc[3], digits=1)) %)", marker=:diamond)
+	hline!(p, [1.0]; color=:black, ls=:dash, lw=1.5, label="U = U₀ (iso-composta)")
+	vline!(p, [I_eval]; color=:gray, ls=:dash, lw=1.5, label="I = $(I_eval) A")
 	p
 end
 
@@ -2722,12 +2850,17 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─ef1805c1-1ca7-441e-803a-a45bf2414e26
 # ╟─d855d53d-efd8-42df-8f81-bb0f7a8b35fd
 # ╟─c84e6d57-4c72-4fea-8f17-8892124af01b
+# ╟─4a7e97b9-70a2-4dbc-a25b-ef9de9e46142
+# ╟─c1e5cd6e-3d5c-4e0a-964a-09803a2d3e9c
+# ╟─dc6e2bf4-7c91-4763-aeb3-a2d0f3042ac8
+# ╟─b160823a-7993-4ec6-8b2f-eac849008b9f
 # ╟─b258eeb3-248a-466a-b6e3-f323e630d92d
 # ╟─e37a8e7d-a9b7-44a1-9a19-6edeec501535
 # ╟─e4c39c28-c16e-46ce-8adb-591fc2811a32
 # ╟─97f3e468-2f8b-4835-a58d-f7f6be44fcd7
+# ╟─b813e4eb-2237-4130-b17c-b3d1be6a4964
 # ╟─81d39162-63a3-40fb-9146-03102e8f743f
-# ╟─e6b6aae2-340a-4ef5-936a-743e23c49881
+# ╟─a3c03068-896f-4012-bc43-bc260a2a9c5c
 # ╟─87db8358-81b4-440e-8ec7-750e24afd80b
 # ╟─e39d4df6-f8f3-4563-91e7-995e95bce75d
 # ╟─686d37f2-c05d-4266-8c23-d2b0b12bd19f
@@ -2747,10 +2880,9 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─035ff22f-9527-4a03-88c4-12d52bcec829
 # ╟─c2d747a3-d376-4e3f-9266-8d3e7bc79a18
 # ╟─6402d75e-7467-4b24-8088-a5f690c64cad
-# ╟─278c84fd-b6b6-457e-9227-8b5b4eba9c10
 # ╟─89ab6e23-489b-41ec-9534-ba1fce61c240
 # ╟─c25f7278-b8bc-41a5-9ba6-04e49aacb393
-# ╟─e69def99-b256-4130-b9e5-d2b5171a70cd
+# ╟─3ab4240c-0e1c-4a0b-82f4-941adf24e8f9
 # ╟─c1daf204-959d-4749-a6d4-a0c1e42eb44b
 # ╟─b366550d-5d21-42a1-99e6-335a846b0085
 # ╟─0f12f102-f0f7-4205-8fd3-3c1905df13b4
@@ -2781,29 +2913,37 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─01f72d8f-c9ba-458c-9163-3162fc2f67b6
 # ╟─5c8af6f1-e296-4360-aaad-4496b224ed50
 # ╟─41435062-7fe4-485d-ab8a-d7e4fd380d62
+# ╟─5b3b8ce0-ad02-4ab7-bdc7-e6fb1e0adbc7
+# ╟─7d794856-5fa2-4255-86a4-78e07330eda8
+# ╟─89619473-9d37-4644-a7fa-05ea777e4557
 # ╟─341e2e52-a9fa-418c-a003-c78c925b95b2
 # ╟─e95407b9-08c4-4687-aa0d-b6c82b25b499
+# ╟─cc4e045e-4cbe-450b-b7cc-ad79c9da50c0
 # ╟─60b10931-cdd0-4815-bcf6-21d18e04c7fe
 # ╟─6741a499-ef19-4b60-8901-aef9b20dd0bc
 # ╟─2adb39ad-36aa-47cb-9a3e-5431681a6957
 # ╟─60c28e92-fb65-4a29-9e74-9cf1af6a8aea
 # ╟─3ce6c57c-0f15-44b9-b18a-d250ceac3f44
 # ╟─cdacb1e0-486f-466f-90d6-9e3267cd2fc8
+# ╟─b3c788e0-3c0c-4c84-bd46-5b7447668f52
 # ╟─c8fe90c6-2515-4725-90bc-862802231b86
 # ╟─309e6d46-9af8-4851-88b8-39cbad2a1c2f
 # ╟─b5f0f838-351d-4314-9787-b392dc24e643
 # ╟─31a4f26b-1a5e-49c0-aea1-0dc27d89da6d
 # ╟─5555543c-a8b3-4349-b00e-55302c0a3e7b
+# ╟─3c9d105a-d671-4a60-b7db-d8bf59a6f67f
 # ╟─4e75afb3-68d0-4d60-aef6-4ddb27938c6c
-# ╟─c04ce852-c270-4f0c-9f26-fc4b91aac934
+# ╟─305d59f2-a858-4de0-b8af-c9bca9bc1aa3
 # ╟─06c56f64-34a3-40d2-88d6-03ef31bfd844
 # ╟─6e651654-608e-4142-b24d-de9d4741f49c
 # ╟─3e5c01b7-2d41-47f1-ab97-d60217b20522
 # ╟─be18c701-5efb-4e6d-af39-30686b851079
 # ╟─c50754c1-9322-4a94-b0cb-a5144067930e
+# ╟─9c21d76c-1022-4d26-8626-47d6ad0218b7
 # ╟─6205f92a-d010-4b73-95b1-f5b9b32d8481
 # ╟─1b1af362-13ac-4b67-ac6a-731223ad01aa
 # ╟─a22914bd-97fc-4886-afe0-ce8850f51f60
+# ╟─b0386bee-e43f-422b-b0be-0d0187a36ff0
 # ╟─4f2a3a8e-7012-4359-9b05-6b13b045540f
 # ╟─5019d9f5-71c5-47bc-8286-9e02309b81eb
 # ╟─54721e61-d21d-465f-953e-266c8c8e2d6e
@@ -2811,23 +2951,28 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╟─a248aed1-b0b0-416d-93df-45831e692b7a
 # ╟─6be45a6b-ce84-41f4-b1c9-90d8335431fe
 # ╟─8231daaa-9f48-401b-abe1-550d9b4a8238
+# ╟─8755fd04-367f-44cb-a76b-ba83690befe8
 # ╟─f608f999-81a0-4ef3-aa1f-26bc225761bb
 # ╟─1f883f87-d5fe-4e85-934f-48adce06f567
+# ╟─87fb8772-13ab-4c3c-910a-bd4f3b73704b
 # ╟─bd2479e8-c8b6-42fc-a100-77035bad3f8e
 # ╟─ec9f4678-7624-463d-97b5-c588d4ffab66
 # ╟─dfbe1f84-782d-41e3-83e1-6aa1c9dd2029
 # ╟─77a8fc85-cdbc-4f9d-9aed-13451c3182bd
+# ╟─59c3c476-27ff-42fc-bcf7-ba30befead50
+# ╟─7b8aa79a-3a0d-414e-bfd3-bd65af16850f
 # ╟─50a045a1-a9ff-4675-8fdb-a46b58e924d7
 # ╟─4aed194d-ece6-4ce8-b2ea-552af91cb6e6
 # ╟─93114ffd-0f8e-43b7-bd64-4859346448b1
+# ╟─a56463ac-4a72-41ee-9fee-bede0e6a5b93
 # ╟─6dce2eb9-b96b-4fef-b213-1e5737b7b4a7
 # ╟─2de777c0-91e0-405e-b048-221c344f98c4
 # ╟─227bfc6a-7bce-438e-808f-22b0ab2f2e2e
 # ╟─4b20021f-9293-4929-b354-b3073355ffea
 # ╟─5f9bf960-ee0a-4aa1-bbae-2c69e923c745
 # ╟─2d1768d1-bb1e-4e2e-8b4b-11d796f1379c
+# ╟─c31eb315-0b9a-4b85-a12b-e4852746f0da
 # ╟─70ddc2a0-047c-4f32-bb17-feaadf7df41e
-# ╟─425dd22b-3872-45ec-a4f2-e2ba8d6d1eeb
 # ╟─b857b5e2-176b-4faf-984b-e40f533e8d81
 # ╟─89a9870f-2c6a-46c5-a9dc-5c0bfccf50a9
 # ╟─92c0f101-c9fc-497d-92d2-3185d0a3559a

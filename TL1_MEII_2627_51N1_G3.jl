@@ -422,7 +422,7 @@ md"""
 
 [^Chapman]: S. J. Chapman, *Electric Machinery Fundamentals*, 5.ª ed. New York, NY, USA: McGraw-Hill, 2012.
 
-[^IST_IA]: A. Oliveira, C. Silva, F. Joaquim, P. André, P. Monteiro, P. T. Monteiro e T. Peña, *Utilização da Inteligência Artificial no Instituto Superior Técnico: Reflexão e Guia*, Instituto Superior Técnico, 📌 (ano). Disponível em: <https://tecnico.ulisboa.pt/pt/noticias/campus-e-comunidade/tecnico-apresenta-guia-para-a-utilizacao-responsavel-da-inteligencia-artificial/#reflexao-e-guia-para-a-utilizacao-da-inteligencia-artificial-no-instituto-superior-tecnico-2/1/>
+[^IST_IA]: A. Oliveira, C. Silva, F. Joaquim, P. André, P. Monteiro, P. T. Monteiro e T. Peña, *Utilização da Inteligência Artificial no Instituto Superior Técnico: Reflexão e Guia*, Instituto Superior Técnico, 2025. Disponível em: <https://tecnico.ulisboa.pt/pt/noticias/campus-e-comunidade/tecnico-apresenta-guia-para-a-utilizacao-responsavel-da-inteligencia-artificial/#reflexao-e-guia-para-a-utilizacao-da-inteligencia-artificial-no-instituto-superior-tecnico-2/1/>
 """
 
 # ╔═╡ 92c0f101-c9fc-497d-92d2-3185d0a3559a
@@ -910,7 +910,7 @@ Em derivação, além de $$\Delta U_r=R_i I_i$$ (com $$I_i=I+I_d$$), o aumento d
 
 # ╔═╡ c50754c1-9322-4a94-b0cb-a5144067930e
 md"""
-**$(leg_fig(:fig_derE))** f.e.m. efectiva $$U+R_iI_i$$ e $$E_0(I_d)$$ obtido da característica magnética, em função de $$I$$. 📌 Discutir as diferenças (entre sessões/bancadas, aparelhos de medida, temperatura dos enrolamentos, RMI).
+**$(leg_fig(:fig_derE))** f.e.m. efectiva $$U+R_iI_i$$ e $$E_0(I_d)$$ obtido da característica magnética, em função de $$I$$.
 """
 
 # ╔═╡ 9c21d76c-1022-4d26-8626-47d6ad0218b7
